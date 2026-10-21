@@ -3,60 +3,364 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vortex Technologies</title>
+  <meta name="description" content="Vortex Technologies, founded by Astrion (Mogau), develops practical technology projects, including Votex-Sat1, an Earth-based weather monitoring device.">
+  <title>Vortex Technologies | Build Tomorrow</title>
+
   <style>
-    body {
+    :root {
+      --background: #070b14;
+      --panel: #101a2b;
+      --blue: #38bdf8;
+      --white: #f4f7ff;
+      --muted: #a8b5ca;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #080d18;
-      color: white;
-      text-align: center;
+      padding: 0;
     }
-    header {
-      padding: 25px;
-      text-align: left;
-      border-bottom: 1px solid #273449;
+
+    html {
+      scroll-behavior: smooth;
     }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    .hero {
-      padding: 100px 20px;
-    }
-    .hero p {
-      color: #b8c5d8;
-      font-size: 18px;
+
+    body {
+      background: var(--background);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
     }
-    .project {
-      padding: 45px 20px;
-      background: #111b2d;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .tag {
-      color: #55c8ff;
-      letter-spacing: 4px;
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 11, 20, 0.96);
+      border-bottom: 1px solid #243147;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 95px 24px 75px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.1;
+      margin: 18px 0;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 6px;
+      background: var(--blue);
+      color: #06101c;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #8bdcff;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid #263a53;
+    }
+
+    section.content-section {
+      padding: 75px 24px;
+      scroll-margin-top: 85px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0 15px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .project-section {
+      background: var(--panel);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #263a53;
+    }
+
+    .feature-list {
+      padding-left: 22px;
+      color: var(--muted);
+      margin: 18px 0;
+    }
+
+    .feature-list li {
+      margin: 8px 0;
+    }
+
+    .status-note {
+      color: var(--blue);
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .vision-card {
+      padding: 25px;
+      background: var(--panel);
+      border: 1px solid #243147;
+      border-radius: 10px;
+    }
+
+    .vision-card h3 {
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .vision-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #243147;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero-image {
+        height: 260px;
+      }
+
+      .project-image {
+        height: 250px;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <header>
-    <strong>VORTEX TECHNOLOGIES</strong>
+    <nav>
+      <a class="logo" href="#home">VORTEX<span> TECHNOLOGIES</span></a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#project">Our Project</a>
+        <a href="#vision">Our Vision</a>
+      </div>
+    </nav>
   </header>
 
-  <section class="hero">
-    <p class="tag">DREAM. DESIGN. BUILD.</p>
-    <h1>Building Tomorrow.</h1>
-    <p>Meet Astrion (Mogau), founder of Vortex Technologies.</p>
-    <p>An aspiring technology innovator exploring new ideas<br>
-    and building practical technology projects.</p>
-  </section>
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">Dream. Design. Build.</p>
+        <h1>Building a <span>Smarter</span> Tomorrow.</h1>
 
-  <section class="project">
-    <h2>OUR FEATURED PROJECT</h2>
-    <h1>Votex-Sat1</h1>
-    <p>An experimental, satellite-inspired project using an ESP32.</p>
-    <p>Our journey starts here.</p>
-  </section>
+        <p class="intro">
+          Welcome to Vortex Technologies, founded by Astrion (Mogau),
+          an aspiring technology innovator exploring practical ideas
+          to understand and improve the world around us.
+        </p>
+
+        <a class="button" href="#project">Discover Votex-Sat1</a>
+      </div>
+
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85"
+        alt="Electronic circuit board and technology components"
+      >
+    </section>
+
+    <section class="content-section project-section" id="project">
+      <div class="section-inner">
+        <p class="eyebrow">Featured project</p>
+        <h2 class="section-title">Meet Votex-Sat1</h2>
+
+        <div class="project-grid">
+          <div>
+            <p class="section-description">
+              Votex-Sat1 is an Earth-based, satellite-inspired
+              weather monitoring project. It is designed to work
+              here on Earth, not to travel into space.
+            </p>
+
+            <h3>What is it designed to do?</h3>
+
+            <ul class="feature-list">
+              <li>Use an ESP32 microcontroller to process sensor readings.</li>
+              <li>Measure local temperature.</li>
+              <li>Measure humidity, the amount of water vapour in the air.</li>
+              <li>Send readings over Wi-Fi to a dashboard that can be viewed in a browser.</li>
+            </ul>
+
+            <p class="status-note">
+              Current goal: build and test the weather monitoring system.
+            </p>
+          </div>
+
+          <img
+            class="project-image"
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85"
+            alt="Electronics and engineering workspace"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="vision">
+      <div class="section-inner">
+        <p class="eyebrow">Our direction</p>
+        <h2 class="section-title">Our Vision</h2>
+
+        <p class="section-description">
+          Vortex Technologies aims to learn, experiment and create
+          useful technology through practical projects and continuous improvement.
+        </p>
+
+        <div class="vision-grid">
+          <article class="vision-card">
+            <h3>Innovation</h3>
+            <p>Turn new ideas into practical experiments and working prototypes.</p>
+          </article>
+
+          <article class="vision-card">
+            <h3>Learning</h3>
+            <p>Develop skills in electronics, programming, sensors and engineering.</p>
+          </article>
+
+          <article class="vision-card">
+            <h3>Real-world impact</h3>
+            <p>Explore ways technology can help people understand their surroundings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Vortex Technologies</p>
+    <p>Founded by Astrion (Mogau)</p>
+    <p>Learning today. Building tomorrow.</p>
+  </footer>
+
 </body>
 </html>
