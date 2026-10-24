@@ -3,22 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vortex Technologies, founded by Astrion (Mogau), develops practical technology projects, including Votex-Sat1, an Earth-based weather monitoring device.">
-  <title>Vortex Technologies | Build Tomorrow</title>
+
+  <title>Sammarth Trading & Projects | Official Website</title>
+  <meta name="description" content="Welcome to Sammarth Trading & Projects, a group of companies with different departments working toward a shared vision.">
 
   <style>
-    :root {
-      --background: #070b14;
-      --panel: #101a2b;
-      --blue: #38bdf8;
-      --white: #f4f7ff;
-      --muted: #a8b5ca;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -26,228 +19,195 @@
     }
 
     body {
-      background: var(--background);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f5f7f0;
+      color: #20251b;
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    header {
+      background: #fff;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 12px #00000012;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(7, 11, 20, 0.96);
-      border-bottom: 1px solid #243147;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand h2 {
+      font-size: 18px;
+      color: #526b20;
+      line-height: 1.3;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: #555;
     }
 
     nav {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 24px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
-    .logo {
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    nav a {
+      text-decoration: none;
+      color: #26331a;
+      font-weight: bold;
     }
 
-    .logo span {
-      color: var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
+    nav a:hover {
+      color: #78952c;
     }
 
     .hero {
-      max-width: 1150px;
-      margin: auto;
-      padding: 95px 24px 75px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      min-height: 78vh;
+      padding: 65px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 45px;
+      text-align: center;
+      background: linear-gradient(135deg, #263817, #617d29, #849a45);
+      color: white;
     }
 
-    .eyebrow {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .hero img {
+      width: 190px;
+      height: 190px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 5px solid #ffffff80;
     }
 
-    h1 {
-      font-size: clamp(38px, 6vw, 65px);
-      line-height: 1.1;
-      margin: 18px 0;
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.2;
+      margin-bottom: 18px;
     }
 
-    h1 span {
-      color: var(--blue);
-    }
-
-    .intro {
-      color: var(--muted);
-      max-width: 560px;
+    .hero p {
+      max-width: 750px;
+      font-size: 18px;
       margin-bottom: 28px;
     }
 
     .button {
       display: inline-block;
-      padding: 12px 21px;
-      border-radius: 6px;
-      background: var(--blue);
-      color: #06101c;
+      background: white;
+      color: #3c511e;
+      padding: 12px 26px;
+      border-radius: 30px;
       font-weight: bold;
+      text-decoration: none;
     }
 
     .button:hover {
-      background: #8bdcff;
+      background: #e9efd9;
     }
 
-    .hero-image {
-      width: 100%;
-      height: 340px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid #263a53;
+    section {
+      padding: 75px 7%;
+      scroll-margin-top: 20px;
     }
 
-    section.content-section {
-      padding: 75px 24px;
-      scroll-margin-top: 85px;
+    section h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #536d25;
+      margin-bottom: 24px;
     }
 
-    .section-inner {
-      max-width: 1100px;
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .departments {
+      background: #e9eedf;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: white;
+      padding: 26px;
+      border-radius: 12px;
+      border-bottom: 4px solid #77933a;
+      box-shadow: 0 5px 18px #0000000a;
+    }
+
+    .card h3 {
+      color: #536d25;
+      margin-bottom: 12px;
+    }
+
+    .vision {
+      background: #293b1d;
+      color: white;
+      text-align: center;
+    }
+
+    .vision h2 {
+      color: #d6e7a5;
+    }
+
+    .vision p {
+      max-width: 800px;
       margin: auto;
     }
 
-    .section-title {
-      font-size: clamp(28px, 4vw, 40px);
-      margin: 10px 0 15px;
-    }
-
-    .section-description {
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 30px;
-    }
-
-    .project-section {
-      background: var(--panel);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .project-image {
-      width: 100%;
-      height: 310px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #263a53;
-    }
-
-    .feature-list {
-      padding-left: 22px;
-      color: var(--muted);
-      margin: 18px 0;
-    }
-
-    .feature-list li {
-      margin: 8px 0;
-    }
-
-    .status-note {
-      color: var(--blue);
-      font-size: 14px;
-      margin-top: 18px;
-    }
-
-    .vision-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .vision-card {
-      padding: 25px;
-      background: var(--panel);
-      border: 1px solid #243147;
-      border-radius: 10px;
-    }
-
-    .vision-card h3 {
-      color: var(--blue);
-      margin-bottom: 10px;
-    }
-
-    .vision-card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
     footer {
+      background: #172313;
+      color: white;
       text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #243147;
-      color: var(--muted);
-      font-size: 14px;
+      padding: 28px 7%;
     }
 
-    @media (max-width: 760px) {
-      .hero,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+    footer p {
+      margin: 4px 0;
+    }
 
-      .hero {
-        padding-top: 55px;
-      }
-
-      .hero-image {
-        height: 260px;
-      }
-
-      .project-image {
-        height: 250px;
-      }
-
-      .vision-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 650px) {
+      header {
+        justify-content: center;
       }
 
       nav {
         justify-content: center;
+        gap: 14px;
       }
 
-      .nav-links {
-        justify-content: center;
+      .brand h2 {
+        font-size: 16px;
+      }
+
+      .hero img {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
@@ -256,111 +216,115 @@
 <body>
 
   <header>
-    <nav>
-      <a class="logo" href="#home">VORTEX<span> TECHNOLOGIES</span></a>
-
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#project">Our Project</a>
-        <a href="#vision">Our Vision</a>
+    <div class="brand">
+      <img src="logo.jpg" alt="Sammarth Trading & Projects logo">
+      <div>
+        <h2>SAMMARTH</h2>
+        <p>Trading & Projects</p>
       </div>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#departments">Departments</a>
+      <a href="#vision">Our Vision</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div>
-        <p class="eyebrow">Dream. Design. Build.</p>
-        <h1>Building a <span>Smarter</span> Tomorrow.</h1>
+      <img src="logo.jpg" alt="Official Sammarth company logo">
 
-        <p class="intro">
-          Welcome to Vortex Technologies, founded by Astrion (Mogau),
-          an aspiring technology innovator exploring practical ideas
-          to understand and improve the world around us.
-        </p>
+      <h1>Sammarth Trading & Projects</h1>
 
-        <a class="button" href="#project">Discover Votex-Sat1</a>
-      </div>
+      <p>
+        A group of companies bringing different departments
+        together to pursue opportunities, encourage innovation,
+        and build a shared future.
+      </p>
 
-      <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85"
-        alt="Electronic circuit board and technology components"
-      >
+      <a href="#about" class="button">Discover Our Company</a>
     </section>
 
-    <section class="content-section project-section" id="project">
-      <div class="section-inner">
-        <p class="eyebrow">Featured project</p>
-        <h2 class="section-title">Meet Votex-Sat1</h2>
+    <section id="about">
+      <h2>About Sammarth</h2>
 
-        <div class="project-grid">
-          <div>
-            <p class="section-description">
-              Votex-Sat1 is an Earth-based, satellite-inspired
-              weather monitoring project. It is designed to work
-              here on Earth, not to travel into space.
-            </p>
+      <p class="intro">
+        Sammarth Trading & Projects is a group of companies
+        consisting of different departments. Our goal is to
+        bring business activities and ideas together under
+        one organization, encouraging collaboration, development,
+        and new opportunities.
+      </p>
+    </section>
 
-            <h3>What is it designed to do?</h3>
+    <section class="departments" id="departments">
+      <h2>Our Departments</h2>
 
-            <ul class="feature-list">
-              <li>Use an ESP32 microcontroller to process sensor readings.</li>
-              <li>Measure local temperature.</li>
-              <li>Measure humidity, the amount of water vapour in the air.</li>
-              <li>Send readings over Wi-Fi to a dashboard that can be viewed in a browser.</li>
-            </ul>
+      <p class="intro">
+        Our departments represent different areas of work
+        that can contribute to the growth and development
+        of Sammarth Trading & Projects.
+      </p>
 
-            <p class="status-note">
-              Current goal: build and test the weather monitoring system.
-            </p>
-          </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Trading</h3>
+          <p>
+            Supporting trading activities and business
+            opportunities.
+          </p>
+        </article>
 
-          <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85"
-            alt="Electronics and engineering workspace"
-            loading="lazy"
-          >
-        </div>
+        <article class="card">
+          <h3>Projects</h3>
+          <p>
+            Supporting the planning and development
+            of projects and new initiatives.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Technology</h3>
+          <p>
+            Exploring technology and digital solutions
+            that can support business activities.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Business Development</h3>
+          <p>
+            Exploring opportunities for growth,
+            partnerships, and future development.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section class="content-section" id="vision">
-      <div class="section-inner">
-        <p class="eyebrow">Our direction</p>
-        <h2 class="section-title">Our Vision</h2>
+    <section class="vision" id="vision">
+      <h2>Our Vision</h2>
 
-        <p class="section-description">
-          Vortex Technologies aims to learn, experiment and create
-          useful technology through practical projects and continuous improvement.
-        </p>
-
-        <div class="vision-grid">
-          <article class="vision-card">
-            <h3>Innovation</h3>
-            <p>Turn new ideas into practical experiments and working prototypes.</p>
-          </article>
-
-          <article class="vision-card">
-            <h3>Learning</h3>
-            <p>Develop skills in electronics, programming, sensors and engineering.</p>
-          </article>
-
-          <article class="vision-card">
-            <h3>Real-world impact</h3>
-            <p>Explore ways technology can help people understand their surroundings.</p>
-          </article>
-        </div>
-      </div>
+      <p>
+        Our vision is to develop a connected group of companies
+        where different departments work together, encourage
+        innovation, and pursue meaningful opportunities for
+        sustainable growth and a successful future.
+      </p>
     </section>
   </main>
 
   <footer>
-    <p>Vortex Technologies</p>
-    <p>Founded by Astrion (Mogau)</p>
-    <p>Learning today. Building tomorrow.</p>
+    <p><strong>SAMMARTH TRADING & PROJECTS</strong></p>
+    <p>Building Opportunities. Developing Projects. Growing Together.</p>
+    <p>&copy; <span id="year"></span> Sammarth Trading & Projects.</p>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
