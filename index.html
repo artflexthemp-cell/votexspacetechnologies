@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="bDNjF5x2jszzqhLmzca_NnkRTAqXY6H4DWr5RMHtGf8" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vortex Technologies, founded by Astrion (phahlamohlaka Mogau), develops practical technology projects, including Votex-Sat1, an Earth-based weather monitoring device.">
-  <title>Vortex Technologies | Build Tomorrow</title>
+  <title>Sammartha | Official Company Website</title>
+  <meta name="description" content="Welcome to Sammartha, a group of companies working across different departments toward a shared vision.">
 
   <style>
-    :root {
-      --background: #070b14;
-      --panel: #101a2b;
-      --blue: #38bdf8;
-      --white: #f4f7ff;
-      --muted: #a8b5ca;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -27,227 +18,152 @@
     }
 
     body {
-      background: var(--background);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.6;
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(7, 11, 20, 0.96);
-      border-bottom: 1px solid #243147;
-    }
-
-    nav {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 24px;
+      background: #0d1b2e;
+      padding: 20px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 15px;
     }
 
     .logo {
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #45d6ff;
+      letter-spacing: 2px;
     }
 
-    .logo span {
-      color: var(--blue);
-    }
-
-    .nav-links {
+    nav {
       display: flex;
-      gap: 22px;
+      gap: 18px;
       flex-wrap: wrap;
-      font-size: 14px;
     }
 
-    .nav-links a:hover {
-      color: var(--blue);
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #45d6ff;
     }
 
     .hero {
-      max-width: 1150px;
-      margin: auto;
-      padding: 95px 24px 75px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      min-height: 75vh;
+      padding: 80px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 45px;
+      text-align: center;
+      background: linear-gradient(135deg, #07111f, #123b60);
     }
 
-    .eyebrow {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      margin-bottom: 15px;
     }
 
-    h1 {
-      font-size: clamp(38px, 6vw, 65px);
-      line-height: 1.1;
-      margin: 18px 0;
+    .hero h1 span {
+      color: #45d6ff;
     }
 
-    h1 span {
-      color: var(--blue);
-    }
-
-    .intro {
-      color: var(--muted);
-      max-width: 560px;
+    .hero p {
+      max-width: 700px;
+      color: #d4e4f5;
+      font-size: 19px;
       margin-bottom: 28px;
     }
 
     .button {
       display: inline-block;
-      padding: 12px 21px;
-      border-radius: 6px;
-      background: var(--blue);
-      color: #06101c;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: #45d6ff;
+      color: #07111f;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    .button:hover {
-      background: #8bdcff;
+    section {
+      padding: 70px 7%;
+      scroll-margin-top: 20px;
     }
 
-    .hero-image {
-      width: 100%;
-      height: 340px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid #263a53;
+    section h2 {
+      color: #45d6ff;
+      font-size: 34px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    section.content-section {
-      padding: 75px 24px;
-      scroll-margin-top: 85px;
-    }
-
-    .section-inner {
-      max-width: 1100px;
+    .intro {
+      max-width: 850px;
       margin: auto;
+      text-align: center;
+      color: #d4e4f5;
     }
 
-    .section-title {
-      font-size: clamp(28px, 4vw, 40px);
-      margin: 10px 0 15px;
+    .departments {
+      background: #0b1929;
     }
 
-    .section-description {
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 30px;
-    }
-
-    .project-section {
-      background: var(--panel);
-    }
-
-    .project-grid {
+    .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 35px;
     }
 
-    .project-image {
-      width: 100%;
-      height: 310px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #263a53;
-    }
-
-    .feature-list {
-      padding-left: 22px;
-      color: var(--muted);
-      margin: 18px 0;
-    }
-
-    .feature-list li {
-      margin: 8px 0;
-    }
-
-    .status-note {
-      color: var(--blue);
-      font-size: 14px;
-      margin-top: 18px;
-    }
-
-    .vision-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .vision-card {
+    .card {
+      background: #12263d;
       padding: 25px;
-      background: var(--panel);
-      border: 1px solid #243147;
-      border-radius: 10px;
+      border: 1px solid #244765;
+      border-radius: 14px;
     }
 
-    .vision-card h3 {
-      color: var(--blue);
+    .card h3 {
+      color: #45d6ff;
       margin-bottom: 10px;
     }
 
-    .vision-card p {
-      color: var(--muted);
-      font-size: 15px;
+    .card p {
+      color: #d4e4f5;
+    }
+
+    .vision {
+      text-align: center;
+      background: linear-gradient(135deg, #0d1b2e, #123b60);
+    }
+
+    .vision p {
+      max-width: 800px;
+      margin: auto;
+      color: #e1edf8;
     }
 
     footer {
+      padding: 25px 7%;
       text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #243147;
-      color: var(--muted);
-      font-size: 14px;
+      background: #040a12;
+      color: #b8c9da;
     }
 
-    @media (max-width: 760px) {
-      .hero,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      .hero-image {
-        height: 260px;
-      }
-
-      .project-image {
-        height: 250px;
-      }
-
-      .vision-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
+    @media (max-width: 600px) {
+      header {
         justify-content: center;
       }
 
-      .nav-links {
+      nav {
         justify-content: center;
       }
     }
@@ -257,163 +173,85 @@
 <body>
 
   <header>
-    <nav>
-      <a class="logo" href="#home">VORTEX<span> TECHNOLOGIES</span></a>
+    <div class="logo">SAMMARTHA</div>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#project">Our Project</a>
-        <a href="#vision">Our Vision</a>
-      </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#departments">Departments</a>
+      <a href="#vision">Our Vision</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div>
-        <p class="eyebrow">Dream. Design. Build.</p>
-        <h1>Building a <span>Smarter</span> Tomorrow.</h1>
-
-        <p class="intro">
-          Welcome to Vortex Technologies, founded by Astrion (Mogau),
-          an aspiring technology innovator exploring practical ideas
-          to understand and improve the world around us.
-        </p>
-
-        <a class="button" href="#project">Discover Votex-Sat1</a>
-      </div>
-
-      <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85"
-        alt="Electronic circuit board and technology components"
-      >
+      <h1>Welcome to <span>Sammartha</span></h1>
+      <p>
+        One group. Different companies. Multiple departments.
+        Working together toward a shared future.
+      </p>
+      <a href="#about" class="button">Discover Sammartha</a>
     </section>
 
-    <section class="content-section project-section" id="project">
-      <div class="section-inner">
-        <p class="eyebrow">Featured project</p>
-        <h2 class="section-title">Meet Votex-Sat1</h2>
+    <section id="about">
+      <h2>About Sammartha</h2>
+      <p class="intro">
+        Sammartha is a group of companies consisting of different
+        departments. Our goal is to bring people, ideas, and
+        business activities together under one organization,
+        creating opportunities for growth, collaboration, and innovation.
+      </p>
+    </section>
 
-        <div class="project-grid">
-          <div>
-            <p class="section-description">
-              Votex-Sat1 is an Earth-based, satellite-inspired
-              weather monitoring project. It is designed to work
-              here on Earth, not to travel into space.
-            </p>
+    <section class="departments" id="departments">
+      <h2>Our Departments</h2>
+      <p class="intro">
+        Each department can contribute its own skills and services
+        to the wider Sammartha group.
+      </p>
 
-            <h3>What is it designed to do?</h3>
+      <div class="cards">
+        <article class="card">
+          <h3>Business Development</h3>
+          <p>Supporting new ideas, business opportunities, and growth.</p>
+        </article>
 
-            <ul class="feature-list">
-              <li>Use an ESP32 microcontroller to process sensor readings.</li>
-              <li>Measure local temperature.</li>
-              <li>Measure humidity, the amount of water vapour in the air.</li>
-              <li>Send readings over Wi-Fi to a dashboard that can be viewed in a browser.</li>
-            </ul>
+        <article class="card">
+          <h3>Technology</h3>
+          <p>Exploring digital solutions, innovation, and modern technology.</p>
+        </article>
 
-            <p class="status-note">
-              Current goal: build and test the weather monitoring system.
-            </p>
-          </div>
+        <article class="card">
+          <h3>Creative Media</h3>
+          <p>Developing communication, branding, and creative projects.</p>
+        </article>
 
-          <img
-            class="project-image"
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85"
-            alt="Electronics and engineering workspace"
-            loading="lazy"
-          >
-        </div>
+        <article class="card">
+          <h3>Operations</h3>
+          <p>Helping coordinate activities and support the group's work.</p>
+        </article>
       </div>
     </section>
 
-    <section class="content-section" id="vision">
-      <div class="section-inner">
-        <p class="eyebrow">Our direction</p>
-        <h2 class="section-title">Our Vision</h2>
-
-        <p class="section-description">
-          Vortex Technologies aims to learn, experiment and create
-          useful technology through practical projects and continuous improvement.
-        </p>
-
-        <div class="vision-grid">
-          <article class="vision-card">
-            <h3>Innovation</h3>
-            <p>Turn new ideas into practical experiments and working prototypes.</p>
-          </article>
-
-          <article class="vision-card">
-            <h3>Learning</h3>
-            <p>Develop skills in electronics, programming, sensors and engineering.</p>
-          </article>
-
-          <article class="vision-card">
-            <h3>Real-world impact</h3>
-            <p>Explore ways technology can help people understand their surroundings.</p>
-          </article>
-        </div>
-      </div>
+    <section class="vision" id="vision">
+      <h2>Our Vision</h2>
+      <p>
+        Sammartha aims to build a connected group of companies
+        where different departments work together, encourage
+        innovation, and create meaningful opportunities for the future.
+      </p>
     </section>
   </main>
 
   <footer>
-    <p>Vortex Technologies</p>
-    <p>Founded by Astrion (Mogau)</p>
-    <p>Learning today. Building tomorrow.</p>
+    <p>&copy; <span id="year"></span> Sammartha. All rights reserved.</p>
+    <p>Official Sammartha Website</p>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
-  <section class="project-video">
-  <h2>Votex-Sat1 in Action</h2>
-  <p>Discover the vision behind our Earth-based technology project.</p>
-
-  <video controls playsinline preload="metadata">
-    <source src="362822561%5B1%5D.mp4" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
-</section>
-
-<style>
-  .project-video {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    background: #101827;
-    border: 1px solid #00bfff;
-    border-radius: 16px;
-  }
-
-  .project-video video {
-    width: 100%;
-    max-height: 520px;
-    border-radius: 12px;
-    background: #000;
-  }
-
-  .project-video h2 {
-    color: #00bfff;
-  }
-</style>
-  <section style="padding: 30px 20px; text-align: center; background: #071426; color: white;">
-  <h2>Vortex Technologies Gallery</h2>
-  <p>Dream. Innovate. Transform.</p>
-  <img
-    src="file_0000000010e88208a51e1eb3a829dbb2%5B1%5D.png"
-    alt="Vortex Technologies and the Votex-Sat1 project"
-    style="width: 100%; max-width: 1000px; height: auto; border-radius: 15px;"
-  >
-</section>
-  <section style="padding: 30px 20px; text-align: center;">
-  <h2>Welcome to Vortex Technologies</h2>
-  <p>Dream. Innovate. Transform.</p>
-
-  <video controls playsinline preload="metadata"
-         style="width: 100%; max-width: 800px; border-radius: 12px;">
-    <source src="911032277%5B1%5D.mp4" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
-</section>
 </html>
