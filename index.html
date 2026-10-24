@@ -3,328 +3,461 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Sammarth Trading & Projects | Official Website</title>
-  <meta name="description" content="Welcome to Sammarth Trading & Projects, a group of companies with different departments working toward a shared vision.">
+  <meta name="theme-color" content="#050b18">
+  <meta name="description" content="Compassion Space Technologies — exploring Earth, environmental monitoring and innovative technology through the Votex-Sat1 project.">
+  <title>Compassion Space Technologies</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #050b18;
+      --panel: #0d1930;
+      --blue: #31baff;
+      --cyan: #78e6ff;
+      --white: #f3f8ff;
+      --muted: #b5c5da;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f7f0;
-      color: #20251b;
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
     }
 
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
     header {
-      background: #fff;
-      padding: 14px 6%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 11, 24, .96);
+      border-bottom: 1px solid #173653;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 18px;
       flex-wrap: wrap;
-      box-shadow: 0 2px 12px #00000012;
+      padding: 12px 0;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 65px;
-      height: 65px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    .brand h2 {
-      font-size: 18px;
-      color: #526b20;
-      line-height: 1.3;
-    }
-
-    .brand p {
-      font-size: 12px;
-      color: #555;
+      color: var(--cyan);
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 1px;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
     }
 
     nav a {
+      color: var(--white);
       text-decoration: none;
-      color: #26331a;
-      font-weight: bold;
+      font-size: 14px;
     }
 
-    nav a:hover {
-      color: #78952c;
-    }
+    nav a:hover { color: var(--cyan); }
 
     .hero {
-      min-height: 78vh;
-      padding: 65px 7%;
+      min-height: 570px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #263817, #617d29, #849a45);
-      color: white;
+      background:
+        linear-gradient(90deg, rgba(5,11,24,.97), rgba(5,11,24,.55)),
+        url("https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
     }
 
-    .hero img {
-      width: 190px;
-      height: 190px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin-bottom: 25px;
-      border: 5px solid #ffffff80;
+    .hero-content {
+      max-width: 760px;
+      padding: 80px 0;
     }
 
-    .hero h1 {
-      font-size: clamp(32px, 6vw, 58px);
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.08;
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: clamp(27px, 4vw, 40px);
       line-height: 1.2;
-      margin-bottom: 18px;
+      margin-top: 0;
     }
 
-    .hero p {
-      max-width: 750px;
-      font-size: 18px;
-      margin-bottom: 28px;
+    h3 { color: var(--cyan); }
+
+    p { color: var(--muted); }
+
+    .highlight { color: var(--cyan); }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
     }
 
     .button {
       display: inline-block;
-      background: white;
-      color: #3c511e;
-      padding: 12px 26px;
-      border-radius: 30px;
-      font-weight: bold;
+      padding: 12px 21px;
+      border: 1px solid var(--blue);
+      border-radius: 7px;
+      background: var(--blue);
+      color: #04101f;
       text-decoration: none;
+      font-weight: bold;
     }
 
-    .button:hover {
-      background: #e9efd9;
+    .button.secondary {
+      background: transparent;
+      color: var(--white);
     }
 
-    section {
-      padding: 75px 7%;
-      scroll-margin-top: 20px;
+    section { padding: 78px 0; }
+
+    .section-intro {
+      max-width: 720px;
+      margin-bottom: 30px;
     }
 
-    section h2 {
-      text-align: center;
-      font-size: 32px;
-      color: #536d25;
-      margin-bottom: 24px;
-    }
-
-    .intro {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .departments {
-      background: #e9eedf;
-    }
-
-    .cards {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
-      margin-top: 35px;
     }
 
     .card {
-      background: white;
-      padding: 26px;
-      border-radius: 12px;
-      border-bottom: 4px solid #77933a;
-      box-shadow: 0 5px 18px #0000000a;
+      background: var(--panel);
+      border: 1px solid #1c3856;
+      border-radius: 14px;
+      overflow: hidden;
     }
 
-    .card h3 {
-      color: #536d25;
-      margin-bottom: 12px;
+    .card img {
+      display: block;
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #101c30;
+    }
+
+    .card-content { padding: 22px; }
+
+    .card h3 { margin-top: 0; }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .project-image {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid #234867;
+    }
+
+    .feature-list {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .feature-list li { margin: 8px 0; }
+
+    .video-box {
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid #1c5276;
+      border-radius: 14px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      background: #000;
+      border-radius: 10px;
     }
 
     .vision {
-      background: #293b1d;
-      color: white;
-      text-align: center;
+      background: linear-gradient(135deg, #0b1b33, #07101f);
+      border-top: 1px solid #173653;
+      border-bottom: 1px solid #173653;
     }
 
-    .vision h2 {
-      color: #d6e7a5;
-    }
-
-    .vision p {
-      max-width: 800px;
-      margin: auto;
+    .founder-box {
+      padding: 28px;
+      background: var(--panel);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
     }
 
     footer {
-      background: #172313;
-      color: white;
+      padding: 35px 0;
+      border-top: 1px solid #173653;
       text-align: center;
-      padding: 28px 7%;
     }
 
-    footer p {
-      margin: 4px 0;
-    }
+    footer p { font-size: 14px; }
 
-    @media (max-width: 650px) {
-      header {
-        justify-content: center;
-      }
+    .small-note { font-size: 12px; }
 
-      nav {
-        justify-content: center;
-        gap: 14px;
-      }
-
-      .brand h2 {
-        font-size: 16px;
-      }
-
-      .hero img {
-        width: 150px;
-        height: 150px;
-      }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .project-layout { grid-template-columns: 1fr; }
+      .nav { justify-content: center; }
+      nav { justify-content: center; }
+      .hero { min-height: 490px; }
+      section { padding: 55px 0; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="brand">
-      <img src="logo.jpg" alt="Sammarth Trading & Projects logo">
-      <div>
-        <h2>SAMMARTH</h2>
-        <p>Trading & Projects</p>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">✦ COMPASSION SPACE TECHNOLOGIES</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#project">Our Project</a>
+      <a href="#vision">Our Vision</a>
+      <a href="#founder">Founder</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">Technology • Earth • Innovation</div>
+      <h1>Exploring Ideas.<br><span class="highlight">Building Tomorrow.</span></h1>
+
+      <p>
+        Welcome to Compassion Space Technologies, where curiosity,
+        creativity and compassion inspire us to explore technology
+        and develop ideas that can benefit our world.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="#project">Explore Our Project</a>
+        <a class="button secondary" href="#about">Discover Our Mission</a>
       </div>
     </div>
+  </section>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#departments">Departments</a>
-      <a href="#vision">Our Vision</a>
-    </nav>
-  </header>
+  <section id="about">
+    <div class="container">
+      <div class="section-intro">
+        <div class="eyebrow">Who We Are</div>
+        <h2>Technology With <span class="highlight">Purpose</span></h2>
+        <p>
+          Compassion Space Technologies is an emerging technology
+          initiative focused on learning, experimentation and
+          innovative ideas. We aim to explore how electronics,
+          environmental monitoring and technology can help us
+          understand the world around us.
+        </p>
+      </div>
 
-  <main>
-    <section class="hero" id="home">
-      <img src="logo.jpg" alt="Official Sammarth company logo">
-
-      <h1>Sammarth Trading & Projects</h1>
-
-      <p>
-        A group of companies bringing different departments
-        together to pursue opportunities, encourage innovation,
-        and build a shared future.
-      </p>
-
-      <a href="#about" class="button">Discover Our Company</a>
-    </section>
-
-    <section id="about">
-      <h2>About Sammarth</h2>
-
-      <p class="intro">
-        Sammarth Trading & Projects is a group of companies
-        consisting of different departments. Our goal is to
-        bring business activities and ideas together under
-        one organization, encouraging collaboration, development,
-        and new opportunities.
-      </p>
-    </section>
-
-    <section class="departments" id="departments">
-      <h2>Our Departments</h2>
-
-      <p class="intro">
-        Our departments represent different areas of work
-        that can contribute to the growth and development
-        of Sammarth Trading & Projects.
-      </p>
-
-      <div class="cards">
+      <div class="grid">
         <article class="card">
-          <h3>Trading</h3>
-          <p>
-            Supporting trading activities and business
-            opportunities.
-          </p>
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+            alt="Earth and global digital connections"
+            loading="lazy">
+          <div class="card-content">
+            <h3>Explore</h3>
+            <p>Discover our planet and learn how technology can help us understand it.</p>
+          </div>
         </article>
 
         <article class="card">
-          <h3>Projects</h3>
-          <p>
-            Supporting the planning and development
-            of projects and new initiatives.
-          </p>
+          <img
+            src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=900&q=80"
+            alt="Rocket technology"
+            loading="lazy">
+          <div class="card-content">
+            <h3>Innovate</h3>
+            <p>Turn ideas into experiments, prototypes and practical learning experiences.</p>
+          </div>
         </article>
 
         <article class="card">
-          <h3>Technology</h3>
-          <p>
-            Exploring technology and digital solutions
-            that can support business activities.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Business Development</h3>
-          <p>
-            Exploring opportunities for growth,
-            partnerships, and future development.
-          </p>
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+            alt="Electronic circuit board"
+            loading="lazy">
+          <div class="card-content">
+            <h3>Create</h3>
+            <p>Use electronics and coding to develop useful technology step by step.</p>
+          </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="vision" id="vision">
-      <h2>Our Vision</h2>
+  <section id="project">
+    <div class="container project-layout">
+      <div>
+        <div class="eyebrow">Featured Project</div>
+        <h2><span class="highlight">Votex-Sat1</span></h2>
 
+        <p>
+          Votex-Sat1 is our Earth-based, satellite-inspired
+          environmental monitoring project. It is designed to
+          explore how a small electronic device can measure local
+          environmental conditions.
+        </p>
+
+        <h3>Our planned capabilities</h3>
+        <ul class="feature-list">
+          <li>Measure temperature using a suitable sensor.</li>
+          <li>Measure humidity using a suitable sensor.</li>
+          <li>Collect readings using an ESP32 development board.</li>
+          <li>Display readings on a local web dashboard.</li>
+          <li>Learn how environmental data can be recorded and understood.</li>
+        </ul>
+
+        <p>
+          Votex-Sat1 is an Earth-based prototype, not an orbital
+          satellite. Its capabilities will depend on the sensors
+          and software we successfully build and test.
+        </p>
+
+        <a class="button" href="#project-video">View Project Video</a>
+      </div>
+
+      <img
+        class="project-image"
+        src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=1200&q=85"
+        alt="Earth viewed from space"
+        loading="lazy">
+    </div>
+  </section>
+
+  <section id="project-video">
+    <div class="container">
+      <div class="section-intro">
+        <div class="eyebrow">Project Media</div>
+        <h2>Our Project <span class="highlight">Video</span></h2>
+        <p>Watch the video introducing our work and technological vision.</p>
+      </div>
+
+      <div class="video-box">
+        <video controls playsinline preload="metadata">
+          <source src="362822561%5B1%5D.mp4" type="video/mp4">
+          Your browser does not support MP4 video playback.
+        </video>
+        <p class="small-note">
+          If the video does not load, check that
+          362822561[1].mp4 is uploaded to the same folder as index.html.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="vision" id="vision">
+    <div class="container">
+      <div class="eyebrow">Our Direction</div>
+      <h2>Our Vision for <span class="highlight">Tomorrow</span></h2>
       <p>
-        Our vision is to develop a connected group of companies
-        where different departments work together, encourage
-        innovation, and pursue meaningful opportunities for
-        sustainable growth and a successful future.
+        Our vision is to grow through knowledge, creativity and
+        responsible innovation. We want to explore environmental
+        technology, develop practical projects and inspire others
+        to believe that meaningful ideas can begin small.
       </p>
-    </section>
-  </main>
 
-  <footer>
-    <p><strong>SAMMARTH TRADING & PROJECTS</strong></p>
-    <p>Building Opportunities. Developing Projects. Growing Together.</p>
-    <p>&copy; <span id="year"></span> Sammarth Trading & Projects.</p>
-  </footer>
+      <h3>Our Mission</h3>
+      <p>
+        To learn, experiment, build and improve technology that
+        can contribute positively to people and the planet.
+      </p>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+  <section id="founder">
+    <div class="container">
+      <div class="eyebrow">The Person Behind the Idea</div>
+      <h2>Meet the <span class="highlight">Founder</span></h2>
+
+      <div class="founder-box">
+        <h3>Mogau Phahlamohlaka</h3>
+        <p>
+          Founder of Compassion Space Technologies
+        </p>
+        <p>
+          Driven by curiosity and a passion for technology,
+          the founder is beginning a journey of learning,
+          building and exploring innovative ideas through
+          projects such as Votex-Sat1.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">The Journey Starts Here</div>
+      <h2>Small Ideas. <span class="highlight">Big Possibilities.</span></h2>
+      <p>
+        Follow our progress as we learn, experiment and develop
+        new ideas in technology.
+      </p>
+      <a class="button" href="#home">Back to Top ↑</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>COMPASSION SPACE TECHNOLOGIES</strong>
+    <p>Exploring ideas. Building tomorrow.</p>
+    <p>© <span id="year"></span> Compassion Space Technologies.</p>
+    <p class="small-note">
+      Space and Earth images are illustrative. Image availability
+      depends on the external hosting websites.
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 
 </body>
 </html>
