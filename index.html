@@ -1,496 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071426">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06101c">
+<meta name="description" content="Compassion Space Technologies and Compassion.Sat 1, an Earth-based environmental monitoring project.">
+<title>Compassion Space Technologies</title>
 
-  <title>Compassion Space Technologies</title>
+<style>
+:root {
+  --bg: #06101c;
+  --panel: #0d1c2d;
+  --blue: #36c5ff;
+  --cyan: #91eaff;
+  --white: #f4f9ff;
+  --muted: #b9c9dc;
+}
 
-  <meta name="description" content="Compassion Space Technologies presents Compassion.Sat 1, an Earth-based technology project exploring environmental monitoring, electronics and innovation.">
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #071426;
-      color: #f4f7fb;
-      line-height: 1.7;
-    }
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(6,16,28,.97);
+  border-bottom: 1px solid #1b3b56;
+}
 
-    header {
-      background: #091b32;
-      border-bottom: 1px solid #1d3856;
-      padding: 18px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.nav {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 12px 0;
+}
 
-    .brand {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #69d8ff;
-    }
+.brand {
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
-    nav a {
-      color: #d9e7f5;
-      font-size: 0.92rem;
-    }
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    nav a:hover {
-      color: #69d8ff;
-    }
+nav a:hover {
+  color: var(--cyan);
+}
 
-    .hero {
-      min-height: 520px;
-      padding: 90px 8%;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(ellipse at 80% 20%, #164e72 0%, transparent 35%),
-        linear-gradient(135deg, #071426, #102c49 60%, #071426);
-    }
+.hero {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(6,16,28,.96), rgba(6,16,28,.58)),
+    url("https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1800&q=85")
+    center / cover;
+}
 
-    .hero-content {
-      max-width: 850px;
-    }
+.hero-content {
+  max-width: 780px;
+  padding: 80px 0;
+}
 
-    .eyebrow {
-      color: #69d8ff;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.78rem;
-      font-weight: bold;
-    }
+.eyebrow {
+  color: var(--cyan);
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-    h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      line-height: 1.08;
-      margin: 20px 0;
-    }
+h1 {
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 1.1;
+  margin: 18px 0;
+}
 
-    h1 span {
-      color: #69d8ff;
-    }
+h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+}
 
-    .hero p {
-      max-width: 680px;
-      color: #d0deed;
-      font-size: 1.08rem;
-      margin-bottom: 28px;
-    }
+h3 {
+  color: var(--cyan);
+}
 
-    .button {
-      display: inline-block;
-      background: #69d8ff;
-      color: #071426;
-      padding: 12px 22px;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
+p {
+  color: var(--muted);
+}
 
-    .button:hover {
-      background: #ffffff;
-      transform: translateY(-2px);
-    }
+.highlight {
+  color: var(--cyan);
+}
 
-    section {
-      padding: 75px 8%;
-      scroll-margin-top: 20px;
-    }
+.button {
+  display: inline-block;
+  background: var(--blue);
+  color: #04101a;
+  padding: 12px 20px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 8px 8px 8px 0;
+}
 
-    .section-heading {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      margin-bottom: 12px;
-    }
+.button.secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--blue);
+}
 
-    .section-intro {
-      max-width: 760px;
-      color: #b9cadd;
-      margin-bottom: 35px;
-    }
+section {
+  padding: 75px 0;
+}
 
-    .accent {
-      color: #69d8ff;
-    }
+.intro {
+  max-width: 760px;
+}
 
-    .about {
-      background: #0b1d33;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
 
-    .project-panel {
-      border: 1px solid #244663;
-      border-radius: 14px;
-      padding: 30px;
-      background: linear-gradient(135deg, #102b45, #0b1b30);
-    }
+.card {
+  background: var(--panel);
+  border: 1px solid #203c56;
+  border-radius: 13px;
+  overflow: hidden;
+}
 
-    .project-panel h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-      color: #69d8ff;
-    }
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #101c30;
+}
 
-    .project-panel p {
-      color: #d0deed;
-      margin-bottom: 14px;
-    }
+.card-content {
+  padding: 20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
+.project-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
 
-    .card {
-      background: #0c2037;
-      border: 1px solid #203e5c;
-      border-radius: 12px;
-      padding: 25px;
-      min-width: 0;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+.project-image {
+  width: 100%;
+  max-height: 430px;
+  object-fit: cover;
+  border-radius: 13px;
+  border: 1px solid #254863;
+}
 
-    .card:hover {
-      border-color: #69d8ff;
-      transform: translateY(-4px);
-    }
+.feature-list {
+  color: var(--muted);
+  padding-left: 22px;
+}
 
-    .card-symbol {
-      width: 55px;
-      height: 55px;
-      display: grid;
-      place-items: center;
-      background: #153c59;
-      border-radius: 12px;
-      font-size: 1.7rem;
-      margin-bottom: 18px;
-    }
+.feature-list li {
+  margin: 8px 0;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #69d8ff;
-      font-size: 1.2rem;
-    }
+.vision {
+  background: linear-gradient(135deg, #10253b, #07111e);
+  border-top: 1px solid #203c56;
+  border-bottom: 1px solid #203c56;
+}
 
-    .card p {
-      color: #c3d2e2;
-      font-size: 0.95rem;
-    }
+.founder-box {
+  padding: 26px;
+  background: var(--panel);
+  border: 1px solid #203c56;
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+}
 
-    .vision {
-      background: #0b1d33;
-    }
+footer {
+  padding: 35px 0;
+  text-align: center;
+  border-top: 1px solid #203c56;
+}
 
-    .vision-box {
-      max-width: 900px;
-      border-left: 4px solid #69d8ff;
-      padding: 10px 0 10px 25px;
-    }
+.small {
+  font-size: 12px;
+}
 
-    .vision-box p {
-      color: #d0deed;
-      margin-top: 12px;
-    }
+@media (max-width: 760px) {
+  .grid,
+  .project-layout {
+    grid-template-columns: 1fr;
+  }
 
-    .founder-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      max-width: 760px;
-      background: #0c2037;
-      border: 1px solid #203e5c;
-      border-radius: 12px;
-      padding: 28px;
-    }
+  .nav {
+    justify-content: center;
+  }
 
-    .founder-symbol {
-      flex-shrink: 0;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #153c59;
-      font-size: 1.8rem;
-    }
+  nav {
+    justify-content: center;
+  }
 
-    .founder-card h3 {
-      color: #69d8ff;
-      margin-bottom: 8px;
-    }
+  .hero {
+    min-height: 460px;
+  }
 
-    .founder-card p {
-      color: #c3d2e2;
-    }
-
-    .contact {
-      background: linear-gradient(135deg, #102c49, #071426);
-      text-align: center;
-    }
-
-    .contact p {
-      max-width: 650px;
-      margin: 15px auto 25px;
-      color: #d0deed;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 7%;
-      background: #050e1b;
-      color: #a9bbcf;
-      font-size: 0.88rem;
-      border-top: 1px solid #20334a;
-    }
-
-    @media (max-width: 760px) {
-      header {
-        justify-content: center;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-      }
-
-      .hero {
-        min-height: 440px;
-        padding: 65px 7%;
-      }
-
-      section {
-        padding: 55px 7%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .founder-card {
-        flex-direction: column;
-      }
-    }
-  </style>
+  section {
+    padding: 52px 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
+<header>
+  <div class="container nav">
     <a class="brand" href="#home">
       COMPASSION SPACE TECHNOLOGIES
     </a>
 
     <nav aria-label="Main navigation">
       <a href="#home">Home</a>
+      <a href="#about">About</a>
       <a href="#project">Our Project</a>
-      <a href="#technology">Technology</a>
       <a href="#vision">Our Vision</a>
       <a href="#founder">Founder</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
+<main>
 
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="eyebrow">Innovation • Electronics • Earth</div>
+<section class="hero" id="home">
+  <div class="container hero-content">
 
-        <h1>
-          Building Ideas.<br>
-          Exploring <span>Technology.</span>
-        </h1>
+    <div class="eyebrow">
+      Earth • Technology • Innovation
+    </div>
 
-        <p>
-          Welcome to Compassion Space Technologies, an innovative
-          technology initiative exploring electronics, environmental
-          monitoring and practical solutions inspired by satellite
-          technology.
-        </p>
+    <h1>
+      Discover Our World.<br>
+      <span class="highlight">Build a Better Future.</span>
+    </h1>
 
-        <a class="button" href="#project">
-          Discover Our Project
-        </a>
-      </div>
-    </section>
+    <p>
+      Welcome to Compassion Space Technologies, where ideas,
+      technology, and compassion come together to explore
+      our planet and develop innovative environmental solutions.
+    </p>
 
-    <section class="about" id="project">
-      <div class="eyebrow">Our Main Project</div>
+    <a class="button" href="#project">
+      Explore Our Project
+    </a>
 
-      <h2 class="section-heading">
-        Meet <span class="accent">Compassion.Sat 1</span>
-      </h2>
+    <a class="button secondary" href="#about">
+      About Us
+    </a>
 
-      <p class="section-intro">
-        Compassion.Sat 1 is an Earth-based, satellite-inspired
-        technology project. It is designed to explore how electronic
-        sensors and microcontrollers can help us understand our
-        surrounding environment.
-      </p>
+  </div>
+</section>
 
-      <div class="project-panel">
-        <h3>Compassion.Sat 1 — Environmental Monitoring</h3>
+<section id="about">
+  <div class="container">
 
-        <p>
-          The project aims to use an ESP32 microcontroller and suitable
-          sensors to collect local environmental measurements.
-        </p>
+    <div class="intro">
+      <div class="eyebrow">About Our Company</div>
 
-        <p>
-          Planned features include temperature measurement, humidity
-          measurement, and a simple dashboard for viewing readings
-          through a web browser.
-        </p>
-
-        <p>
-          This is an Earth-based project. It is not an orbital satellite
-          and is not designed to launch into space.
-        </p>
-      </div>
-    </section>
-
-    <section id="technology">
-      <div class="eyebrow">What We Explore</div>
-
-      <h2 class="section-heading">
-        Technology and Innovation
-      </h2>
-
-      <p class="section-intro">
-        Our project brings together different areas of technology
-        to explore practical ideas and learn by building.
-      </p>
-
-      <div class="cards">
-
-        <article class="card">
-          <div class="card-symbol" aria-hidden="true">🌍</div>
-          <h3>Earth and Environment</h3>
-          <p>
-            Explore environmental conditions around us through
-            measurements and sensor-based experiments.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-symbol" aria-hidden="true">⚡</div>
-          <h3>Electronics</h3>
-          <p>
-            Learn about microcontrollers, electronic components,
-            sensors and how hardware works together.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-symbol" aria-hidden="true">💻</div>
-          <h3>Digital Technology</h3>
-          <p>
-            Explore coding, Wi-Fi connectivity and web dashboards
-            that can display information collected by devices.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="vision" id="vision">
-      <div class="eyebrow">Looking Ahead</div>
-
-      <h2 class="section-heading">Our Vision</h2>
-
-      <div class="vision-box">
-        <p>
-          Our vision is to learn, create and develop useful technology
-          through practical experimentation, curiosity and innovation.
-        </p>
-
-        <p>
-          Through Compassion.Sat 1, we aim to explore how accessible
-          electronics can help people observe their environment and
-          understand the possibilities of modern technology.
-        </p>
-      </div>
-    </section>
-
-    <section id="founder">
-      <div class="eyebrow">The Person Behind the Project</div>
-
-      <h2 class="section-heading">Project Founder</h2>
-
-      <div class="founder-card">
-        <div class="founder-symbol" aria-hidden="true">🚀</div>
-
-        <div>
-          <h3>Compassion</h3>
-
-          <p>
-            Founder of Compassion Space Technologies and the creator
-            of the Compassion.Sat 1 project.
-          </p>
-
-          <p>
-            The project is focused on learning, electronics,
-            environmental monitoring and developing new ideas.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="eyebrow">The Future Starts With an Idea</div>
-
-      <h2 class="section-heading">
-        Welcome to Compassion Space Technologies
+      <h2>
+        Innovation with
+        <span class="highlight">Compassion</span>
       </h2>
 
       <p>
-        Discover our journey as we explore electronics, environmental
-        monitoring and technology through the Compassion.Sat 1 project.
+        Compassion Space Technologies is an emerging technology
+        initiative focused on electronics, environmental monitoring,
+        coding, and practical innovation. We aim to explore how
+        technology can help us understand the environment and
+        address real-world challenges.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <img
+          src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=900&q=80"
+          alt="Planet Earth viewed from space"
+          loading="lazy">
+
+        <div class="card-content">
+          <h3>Explore Earth</h3>
+          <p>
+            Learn about our planet and its environment.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+          alt="Electronic circuit board"
+          loading="lazy">
+
+        <div class="card-content">
+          <h3>Build Technology</h3>
+          <p>
+            Experiment with electronics, sensors, and coding.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80"
+          alt="Stars in the night sky"
+          loading="lazy">
+
+        <div class="card-content">
+          <h3>Discover</h3>
+          <p>
+            Explore scientific ideas and new technology.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="container project-layout">
+
+    <div>
+      <div class="eyebrow">Our Main Project</div>
+
+      <h2>
+        <span class="highlight">Compassion.Sat 1</span>
+      </h2>
+
+      <p>
+        Compassion.Sat 1 is our Earth-based, satellite-inspired
+        environmental monitoring project. It explores how
+        electronic sensors and an ESP32 development board
+        can collect local environmental measurements.
       </p>
 
-      <a class="button" href="#home">Back to Top</a>
-    </section>
+      <h3>Project Objectives</h3>
 
-  </main>
+      <ul class="feature-list">
+        <li>Measure local temperature with a suitable sensor.</li>
+        <li>Measure humidity with a compatible sensor.</li>
+        <li>Collect readings through an ESP32.</li>
+        <li>Display measurements on a web dashboard.</li>
+        <li>Learn how environmental data can be understood.</li>
+      </ul>
 
-  <footer>
+      <p>
+        Compassion.Sat 1 operates on Earth. It is not an
+        orbital satellite. Its capabilities will be developed
+        and tested as the hardware and software progress.
+      </p>
+
+      <a class="button" href="#vision">
+        Discover Our Vision
+      </a>
+    </div>
+
+    <img
+      class="project-image"
+      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85"
+      alt="Earth and global technology connections"
+      loading="lazy">
+
+  </div>
+</section>
+
+<section class="vision" id="vision">
+  <div class="container">
+
+    <div class="eyebrow">Our Future</div>
+
+    <h2>
+      Our <span class="highlight">Vision</span>
+    </h2>
+
     <p>
-      &copy; <span id="year"></span>
-      Compassion Space Technologies.
-      All rights reserved.
+      Our vision is to develop useful technology through learning,
+      creativity, experimentation, and responsible innovation.
+      We aspire to grow Compassion Space Technologies into a
+      platform for meaningful projects that help people understand
+      and care for our world.
     </p>
 
-    <p>Compassion.Sat 1 — Earth-Based Technology Project</p>
-  </footer>
+    <h3>Our Mission</h3>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+    <p>
+      To explore ideas, develop practical skills, and build
+      innovative environmental technology one step at a time.
+    </p>
+
+  </div>
+</section>
+
+<section id="founder">
+  <div class="container">
+
+    <div class="eyebrow">Leadership</div>
+
+    <h2>
+      Meet the <span class="highlight">Founder</span>
+    </h2>
+
+    <div class="founder-box">
+
+      <h3>Compassion</h3>
+
+      <p>
+        <strong>Real name: Mogau</strong>
+      </p>
+
+      <p>Founder of Compassion Space Technologies</p>
+
+      <p>
+        Compassion, whose real name is Mogau, is the founder
+        of Compassion Space Technologies. Driven by curiosity
+        and a passion for technology, Mogau is developing
+        Compassion.Sat 1, an Earth-based environmental
+        monitoring project.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="eyebrow">Our Journey</div>
+
+    <h2>
+      One Vision.<br>
+      <span class="highlight">Endless Possibilities.</span>
+    </h2>
+
+    <p>
+      Compassion Space Technologies is taking its first steps
+      toward a future of discovery, learning, and innovation.
+    </p>
+
+    <a class="button" href="#home">
+      Back to Home ↑
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <strong>COMPASSION SPACE TECHNOLOGIES</strong>
+
+    <p>Powered by curiosity. Guided by compassion.</p>
+
+    <p>
+      © <span id="year"></span>
+      Compassion Space Technologies.
+    </p>
+
+    <p class="small">
+      Illustrative images are externally hosted and require internet access.
+    </p>
+
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
 
 </body>
 </html>
