@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#06101c">
-<meta name="description" content="Compassion Space Technologies — exploring Earth, environmental monitoring, electronics and innovation through Compassion.Sat 1.">
+<meta name="description" content="Compassion Space Technologies and Compassion.Sat 1, an Earth-based environmental monitoring project.">
 <title>Compassion Space Technologies</title>
 
 <style>
@@ -18,7 +18,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -53,21 +52,11 @@ header {
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   color: var(--cyan);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 1px;
-}
-
-.brand img {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 nav {
@@ -77,15 +66,15 @@ nav {
 }
 
 nav a {
-  text-decoration: none;
   color: var(--white);
+  text-decoration: none;
   font-size: 14px;
 }
 
 nav a:hover { color: var(--cyan); }
 
 .hero {
-  min-height: 560px;
+  min-height: 540px;
   display: flex;
   align-items: center;
   background:
@@ -97,16 +86,6 @@ nav a:hover { color: var(--cyan); }
 .hero-content {
   max-width: 780px;
   padding: 80px 0;
-}
-
-.hero-logo {
-  width: 150px;
-  max-width: 45%;
-  height: auto;
-  display: block;
-  margin-bottom: 24px;
-  border-radius: 14px;
-  box-shadow: 0 0 25px rgba(54,197,255,.18);
 }
 
 .eyebrow {
@@ -150,7 +129,6 @@ p { color: var(--muted); }
 }
 
 section { padding: 75px 0; }
-
 .intro { max-width: 760px; }
 
 .grid {
@@ -169,7 +147,7 @@ section { padding: 75px 0; }
 
 .card img {
   width: 100%;
-  height: 210px;
+  height: 220px;
   object-fit: cover;
   display: block;
   background: #101c30;
@@ -219,25 +197,13 @@ footer {
   border-top: 1px solid #203c56;
 }
 
-.footer-logo {
-  width: 100px;
-  max-width: 35%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
 .small { font-size: 12px; }
 
 @media (max-width: 760px) {
-  .grid, .project-layout {
-    grid-template-columns: 1fr;
-  }
-
+  .grid, .project-layout { grid-template-columns: 1fr; }
   .nav { justify-content: center; }
   nav { justify-content: center; }
-  .brand { justify-content: center; }
-  .hero { min-height: 470px; }
+  .hero { min-height: 460px; }
   section { padding: 52px 0; }
 }
 </style>
@@ -247,10 +213,7 @@ footer {
 
 <header>
   <div class="container nav">
-    <a class="brand" href="#home">
-      <img src="1000010186.jpg" alt="Compassion Space Technologies logo">
-      <span>COMPASSION SPACE TECHNOLOGIES</span>
-    </a>
+    <a class="brand" href="#home">COMPASSION SPACE TECHNOLOGIES</a>
 
     <nav aria-label="Main navigation">
       <a href="#home">Home</a>
@@ -266,11 +229,6 @@ footer {
 
 <section class="hero" id="home">
   <div class="container hero-content">
-    <img
-      class="hero-logo"
-      src="1000010186.jpg"
-      alt="Compassion Space Technologies emblem">
-
     <div class="eyebrow">Earth • Technology • Innovation</div>
 
     <h1>
@@ -305,6 +263,7 @@ footer {
     </div>
 
     <div class="grid">
+
       <article class="card">
         <img
           src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=900&q=80"
@@ -312,7 +271,7 @@ footer {
           loading="lazy">
         <div class="card-content">
           <h3>Explore Earth</h3>
-          <p>Learn about our planet and the environmental conditions around us.</p>
+          <p>Learn about our planet and its environment.</p>
         </div>
       </article>
 
@@ -323,20 +282,32 @@ footer {
           loading="lazy">
         <div class="card-content">
           <h3>Build Technology</h3>
-          <p>Experiment with electronics, sensors, microcontrollers, and coding.</p>
+          <p>Experiment with electronics, sensors, and coding.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="1000010186.jpg"
+          alt="Compassion Space Technologies company logo"
+          loading="lazy">
+        <div class="card-content">
+          <h3>Our Company Logo</h3>
+          <p>The official emblem of Compassion Space Technologies.</p>
         </div>
       </article>
 
       <article class="card">
         <img
           src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80"
-          alt="Stars shining in the night sky"
+          alt="Stars in the night sky"
           loading="lazy">
         <div class="card-content">
           <h3>Discover</h3>
-          <p>Explore scientific ideas and discover new ways to understand our world.</p>
+          <p>Explore scientific ideas and new technology.</p>
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -355,7 +326,6 @@ footer {
       </p>
 
       <h3>Project Objectives</h3>
-
       <ul class="feature-list">
         <li>Measure local temperature with a suitable sensor.</li>
         <li>Measure humidity with a compatible sensor.</li>
@@ -365,9 +335,9 @@ footer {
       </ul>
 
       <p>
-        Compassion.Sat 1 operates on Earth. It is not an orbital
-        satellite. Its capabilities will be developed and tested
-        as the hardware and software progress.
+        Compassion.Sat 1 operates on Earth. It is not an
+        orbital satellite. Its capabilities will be developed
+        and tested as the hardware and software progress.
       </p>
 
       <a class="button" href="#vision">Discover Our Vision</a>
@@ -395,7 +365,6 @@ footer {
     </p>
 
     <h3>Our Mission</h3>
-
     <p>
       To explore ideas, develop practical skills, and build
       innovative environmental technology one step at a time.
@@ -427,7 +396,6 @@ footer {
 <section>
   <div class="container">
     <div class="eyebrow">Our Journey</div>
-
     <h2>
       One Vision.<br>
       <span class="highlight">Endless Possibilities.</span>
@@ -446,16 +414,11 @@ footer {
 
 <footer>
   <div class="container">
-    <img
-      class="footer-logo"
-      src="1000010186.jpg"
-      alt="Compassion Space Technologies logo">
-
-    <p><strong>COMPASSION SPACE TECHNOLOGIES</strong></p>
+    <strong>COMPASSION SPACE TECHNOLOGIES</strong>
     <p>Powered by curiosity. Guided by compassion.</p>
     <p>© <span id="year"></span> Compassion Space Technologies.</p>
     <p class="small">
-      Images are externally hosted and require an internet connection.
+      Illustrative images are externally hosted and require internet access.
     </p>
   </div>
 </footer>
