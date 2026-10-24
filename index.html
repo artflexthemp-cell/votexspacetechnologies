@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#06101c">
-<meta name="description" content="Compassion Space Technologies develops innovative Earth-based environmental monitoring technology through Compassion.Sat 1.">
+<meta name="description" content="Compassion Space Technologies develops Earth-based environmental monitoring technology through Compassion.Sat 1.">
 <title>Compassion Space Technologies</title>
 
 <style>
@@ -18,7 +18,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -109,9 +108,7 @@ h2 {
 }
 
 h3 { color: var(--cyan); }
-
 p { color: var(--muted); }
-
 .highlight { color: var(--cyan); }
 
 .button {
@@ -132,7 +129,6 @@ p { color: var(--muted); }
 }
 
 section { padding: 75px 0; }
-
 .intro { max-width: 760px; }
 
 .grid {
@@ -195,6 +191,7 @@ section { padding: 75px 0; }
 }
 
 video {
+  display: block;
   width: 100%;
   max-height: 520px;
   background: black;
@@ -214,21 +211,13 @@ footer {
   border-top: 1px solid #203c56;
 }
 
-.small {
-  font-size: 12px;
-}
+.small { font-size: 12px; }
 
 @media (max-width: 760px) {
-  .grid, .project-layout {
-    grid-template-columns: 1fr;
-  }
-
+  .grid, .project-layout { grid-template-columns: 1fr; }
   .nav { justify-content: center; }
-
   nav { justify-content: center; }
-
   .hero { min-height: 470px; }
-
   section { padding: 52px 0; }
 }
 </style>
@@ -239,11 +228,10 @@ footer {
 <header>
   <div class="container nav">
     <a class="brand" href="#home">COMPASSION SPACE TECHNOLOGIES</a>
-
     <nav aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#project">Compassion.Sat 1</a>
+      <a href="#project">Our Project</a>
       <a href="#vision">Our Vision</a>
       <a href="#founder">Founder</a>
     </nav>
@@ -255,20 +243,16 @@ footer {
 <section class="hero" id="home">
   <div class="container hero-content">
     <div class="eyebrow">Earth • Technology • Innovation</div>
-
-    <h1>
-      Discover Our World.<br>
+    <h1>Discover Our World.<br>
       <span class="highlight">Build a Better Future.</span>
     </h1>
-
     <p>
       Welcome to Compassion Space Technologies, where ideas,
       technology, and compassion come together to explore
       our planet and develop innovative environmental solutions.
     </p>
-
     <a class="button" href="#project">Explore Our Project</a>
-    <a class="button secondary" href="#about">Discover Our Mission</a>
+    <a class="button secondary" href="#about">About Us</a>
   </div>
 </section>
 
@@ -277,7 +261,6 @@ footer {
     <div class="intro">
       <div class="eyebrow">About Our Company</div>
       <h2>Innovation with <span class="highlight">Compassion</span></h2>
-
       <p>
         Compassion Space Technologies is an emerging technology
         initiative focused on electronics, environmental
@@ -317,7 +300,7 @@ footer {
           loading="lazy">
         <div class="card-content">
           <h3>Think Beyond</h3>
-          <p>Explore scientific ideas and develop new ways to understand our world.</p>
+          <p>Explore scientific ideas and discover new ways to understand our world.</p>
         </div>
       </article>
     </div>
@@ -328,7 +311,6 @@ footer {
   <div class="container project-layout">
     <div>
       <div class="eyebrow">Our Main Project</div>
-
       <h2><span class="highlight">Compassion.Sat 1</span></h2>
 
       <p>
@@ -338,20 +320,19 @@ footer {
         can collect local environmental measurements.
       </p>
 
-      <h3>Project objectives</h3>
-
+      <h3>Project Objectives</h3>
       <ul class="feature-list">
         <li>Measure local temperature with a suitable sensor.</li>
         <li>Measure humidity with a compatible sensor.</li>
         <li>Collect readings through an ESP32.</li>
         <li>Display measurements on a web dashboard.</li>
-        <li>Learn how environmental data can be used and understood.</li>
+        <li>Learn how environmental data can be understood.</li>
       </ul>
 
       <p>
-        The project operates on Earth and is not an orbital
-        satellite. Its features will be developed and tested
-        as the hardware and software progress.
+        Compassion.Sat 1 operates on Earth. It is not an
+        orbital satellite. Its capabilities will be developed
+        and tested as the hardware and software progress.
       </p>
 
       <a class="button" href="#project-video">Watch Project Video</a>
@@ -369,21 +350,15 @@ footer {
   <div class="container">
     <div class="eyebrow">Project Media</div>
     <h2>Compassion.Sat 1 <span class="highlight">in Action</span></h2>
-
-    <p>
-      Follow our journey as we introduce and develop
-      our environmental technology project.
-    </p>
+    <p>Follow our journey as we introduce and develop our project.</p>
 
     <div class="video-box">
       <video controls playsinline preload="metadata">
         <source src="362822561%5B1%5D.mp4" type="video/mp4">
         Your browser does not support MP4 video playback.
       </video>
-
       <p class="small">
-        Make sure 362822561[1].mp4 is uploaded to the same
-        folder as index.html in your GitHub repository.
+        Upload 362822561[1].mp4 to the same folder as index.html.
       </p>
     </div>
   </div>
@@ -393,17 +368,15 @@ footer {
   <div class="container">
     <div class="eyebrow">Our Future</div>
     <h2>Our <span class="highlight">Vision</span></h2>
-
     <p>
       Our vision is to develop useful technology through
       learning, creativity, experimentation, and responsible
-      innovation. We aspire to grow Compassion Space
-      Technologies into a platform for meaningful projects
-      that help people understand and care for our world.
+      innovation. We aspire to grow Compassion Space Technologies
+      into a platform for meaningful projects that help people
+      understand and care for our world.
     </p>
 
     <h3>Our Mission</h3>
-
     <p>
       To explore ideas, develop practical skills, and build
       innovative environmental technology one step at a time.
@@ -418,14 +391,14 @@ footer {
 
     <div class="founder-box">
       <h3>Compassion</h3>
-
-      <p><strong>Founder of Compassion Space Technologies</strong></p>
-
+      <p><strong>Real name: Mogau</strong></p>
+      <p>Founder of Compassion Space Technologies</p>
       <p>
-        Compassion is the founder behind Compassion Space
-        Technologies, with a vision of exploring technology,
-        learning through practical projects, and developing
-        ideas that can contribute positively to the world.
+        Compassion, whose real name is Mogau, is the founder
+        of Compassion Space Technologies. Driven by curiosity
+        and a passion for technology, Mogau is developing
+        Compassion.Sat 1, an Earth-based environmental
+        monitoring project.
       </p>
     </div>
   </div>
@@ -433,18 +406,14 @@ footer {
 
 <section>
   <div class="container">
-    <div class="eyebrow">The Beginning of Our Journey</div>
-
-    <h2>
-      One Vision.<br>
+    <div class="eyebrow">Our Journey</div>
+    <h2>One Vision.<br>
       <span class="highlight">Endless Possibilities.</span>
     </h2>
-
     <p>
       Compassion Space Technologies is taking its first
       steps toward a future of discovery, learning, and innovation.
     </p>
-
     <a class="button" href="#home">Back to Home ↑</a>
   </div>
 </section>
@@ -457,8 +426,7 @@ footer {
     <p>Powered by curiosity. Guided by compassion.</p>
     <p>© <span id="year"></span> Compassion Space Technologies.</p>
     <p class="small">
-      Illustrative images are externally hosted.
-      Their availability depends on the image providers.
+      Images are externally hosted and require an internet connection.
     </p>
   </div>
 </footer>
