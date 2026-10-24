@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sammartha | Official Company Website</title>
-  <meta name="description" content="Welcome to Sammartha, a group of companies working across different departments toward a shared vision.">
+
+  <title>Sammarth Trading & Projects | Official Website</title>
+  <meta name="description" content="Welcome to Sammarth Trading & Projects, a group of companies with different departments working toward a shared vision.">
 
   <style>
     * {
@@ -19,102 +20,129 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #07111f;
-      color: white;
-      line-height: 1.6;
+      background: #f5f7f0;
+      color: #20251b;
+      line-height: 1.7;
     }
 
     header {
-      background: #0d1b2e;
-      padding: 20px 7%;
+      background: #fff;
+      padding: 14px 6%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 15px;
+      box-shadow: 0 2px 12px #00000012;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #45d6ff;
-      letter-spacing: 2px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand h2 {
+      font-size: 18px;
+      color: #526b20;
+      line-height: 1.3;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: #555;
     }
 
     nav {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
     nav a {
-      color: white;
       text-decoration: none;
+      color: #26331a;
       font-weight: bold;
     }
 
     nav a:hover {
-      color: #45d6ff;
+      color: #78952c;
     }
 
     .hero {
-      min-height: 75vh;
-      padding: 80px 7%;
+      min-height: 78vh;
+      padding: 65px 7%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #07111f, #123b60);
+      background: linear-gradient(135deg, #263817, #617d29, #849a45);
+      color: white;
+    }
+
+    .hero img {
+      width: 190px;
+      height: 190px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 5px solid #ffffff80;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #45d6ff;
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.2;
+      margin-bottom: 18px;
     }
 
     .hero p {
-      max-width: 700px;
-      color: #d4e4f5;
-      font-size: 19px;
+      max-width: 750px;
+      font-size: 18px;
       margin-bottom: 28px;
     }
 
     .button {
       display: inline-block;
-      padding: 13px 25px;
+      background: white;
+      color: #3c511e;
+      padding: 12px 26px;
       border-radius: 30px;
-      background: #45d6ff;
-      color: #07111f;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #e9efd9;
     }
 
     section {
-      padding: 70px 7%;
+      padding: 75px 7%;
       scroll-margin-top: 20px;
     }
 
     section h2 {
-      color: #45d6ff;
-      font-size: 34px;
-      margin-bottom: 20px;
       text-align: center;
+      font-size: 32px;
+      color: #536d25;
+      margin-bottom: 24px;
     }
 
     .intro {
       max-width: 850px;
       margin: auto;
       text-align: center;
-      color: #d4e4f5;
     }
 
     .departments {
-      background: #0b1929;
+      background: #e9eedf;
     }
 
     .cards {
@@ -125,46 +153,61 @@
     }
 
     .card {
-      background: #12263d;
-      padding: 25px;
-      border: 1px solid #244765;
-      border-radius: 14px;
+      background: white;
+      padding: 26px;
+      border-radius: 12px;
+      border-bottom: 4px solid #77933a;
+      box-shadow: 0 5px 18px #0000000a;
     }
 
     .card h3 {
-      color: #45d6ff;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #d4e4f5;
+      color: #536d25;
+      margin-bottom: 12px;
     }
 
     .vision {
+      background: #293b1d;
+      color: white;
       text-align: center;
-      background: linear-gradient(135deg, #0d1b2e, #123b60);
+    }
+
+    .vision h2 {
+      color: #d6e7a5;
     }
 
     .vision p {
       max-width: 800px;
       margin: auto;
-      color: #e1edf8;
     }
 
     footer {
-      padding: 25px 7%;
+      background: #172313;
+      color: white;
       text-align: center;
-      background: #040a12;
-      color: #b8c9da;
+      padding: 28px 7%;
     }
 
-    @media (max-width: 600px) {
+    footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 650px) {
       header {
         justify-content: center;
       }
 
       nav {
         justify-content: center;
+        gap: 14px;
+      }
+
+      .brand h2 {
+        font-size: 16px;
+      }
+
+      .hero img {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
@@ -173,11 +216,17 @@
 <body>
 
   <header>
-    <div class="logo">SAMMARTHA</div>
+    <div class="brand">
+      <img src="logo.jpg" alt="Sammarth Trading & Projects logo">
+      <div>
+        <h2>SAMMARTH</h2>
+        <p>Trading & Projects</p>
+      </div>
+    </div>
 
     <nav>
       <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a href="#about">About Us</a>
       <a href="#departments">Departments</a>
       <a href="#vision">Our Vision</a>
     </nav>
@@ -185,67 +234,91 @@
 
   <main>
     <section class="hero" id="home">
-      <h1>Welcome to <span>Sammartha</span></h1>
+      <img src="logo.jpg" alt="Official Sammarth company logo">
+
+      <h1>Sammarth Trading & Projects</h1>
+
       <p>
-        One group. Different companies. Multiple departments.
-        Working together toward a shared future.
+        A group of companies bringing different departments
+        together to pursue opportunities, encourage innovation,
+        and build a shared future.
       </p>
-      <a href="#about" class="button">Discover Sammartha</a>
+
+      <a href="#about" class="button">Discover Our Company</a>
     </section>
 
     <section id="about">
-      <h2>About Sammartha</h2>
+      <h2>About Sammarth</h2>
+
       <p class="intro">
-        Sammartha is a group of companies consisting of different
-        departments. Our goal is to bring people, ideas, and
-        business activities together under one organization,
-        creating opportunities for growth, collaboration, and innovation.
+        Sammarth Trading & Projects is a group of companies
+        consisting of different departments. Our goal is to
+        bring business activities and ideas together under
+        one organization, encouraging collaboration, development,
+        and new opportunities.
       </p>
     </section>
 
     <section class="departments" id="departments">
       <h2>Our Departments</h2>
+
       <p class="intro">
-        Each department can contribute its own skills and services
-        to the wider Sammartha group.
+        Our departments represent different areas of work
+        that can contribute to the growth and development
+        of Sammarth Trading & Projects.
       </p>
 
       <div class="cards">
         <article class="card">
-          <h3>Business Development</h3>
-          <p>Supporting new ideas, business opportunities, and growth.</p>
+          <h3>Trading</h3>
+          <p>
+            Supporting trading activities and business
+            opportunities.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Projects</h3>
+          <p>
+            Supporting the planning and development
+            of projects and new initiatives.
+          </p>
         </article>
 
         <article class="card">
           <h3>Technology</h3>
-          <p>Exploring digital solutions, innovation, and modern technology.</p>
+          <p>
+            Exploring technology and digital solutions
+            that can support business activities.
+          </p>
         </article>
 
         <article class="card">
-          <h3>Creative Media</h3>
-          <p>Developing communication, branding, and creative projects.</p>
-        </article>
-
-        <article class="card">
-          <h3>Operations</h3>
-          <p>Helping coordinate activities and support the group's work.</p>
+          <h3>Business Development</h3>
+          <p>
+            Exploring opportunities for growth,
+            partnerships, and future development.
+          </p>
         </article>
       </div>
     </section>
 
     <section class="vision" id="vision">
       <h2>Our Vision</h2>
+
       <p>
-        Sammartha aims to build a connected group of companies
+        Our vision is to develop a connected group of companies
         where different departments work together, encourage
-        innovation, and create meaningful opportunities for the future.
+        innovation, and pursue meaningful opportunities for
+        sustainable growth and a successful future.
       </p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="year"></span> Sammartha. All rights reserved.</p>
-    <p>Official Sammartha Website</p>
+    <p><strong>SAMMARTH TRADING & PROJECTS</strong></p>
+    <p>Building Opportunities. Developing Projects. Growing Together.</p>
+    <p>&copy; <span id="year"></span> Sammarth Trading & Projects.</p>
   </footer>
 
   <script>
