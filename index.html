@@ -321,6 +321,30 @@ section { padding: 75px 0; }
 
 .status.offline .status-dot { background: #ff5252; }
 
+.weather-location {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #254863;
+}
+
+.location-icon {
+  font-size: 27px;
+}
+
+.location-label {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.location-name {
+  color: var(--cyan);
+  font-weight: bold;
+  font-size: 15px;
+}
+
 .weather-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -399,6 +423,76 @@ section { padding: 75px 0; }
   background: #103c59;
 }
 
+/* WEATHER HISTORY GRAPHS */
+
+.history-section {
+  max-width: 900px;
+  margin: 35px auto 0;
+}
+
+.history-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.history-heading h3 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.range-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.range-button {
+  background: #0b1d32;
+  color: var(--cyan);
+  border: 1px solid #225071;
+  padding: 9px 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.range-button:hover,
+.range-button.active {
+  background: var(--blue);
+  color: #04101a;
+  border-color: var(--blue);
+}
+
+.chart-card {
+  background: rgba(11,29,50,.92);
+  border: 1px solid #17618a;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 18px;
+}
+
+.chart-title {
+  color: var(--cyan);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+.history-message {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 15px;
+  min-height: 24px;
+}
+
 .contact {
   text-align: center;
   background:
@@ -445,12 +539,19 @@ footer {
     padding: 18px 12px;
     min-height: 165px;
   }
+
+  .chart-card { padding: 14px; }
+
+  .chart-container { height: 230px; }
 }
 
 @media (max-width: 380px) {
   .weather-grid { grid-template-columns: 1fr; }
 }
 </style>
+
+<!-- Chart.js graph library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -491,13 +592,8 @@ footer {
       our planet and develop innovative environmental solutions.
     </p>
 
-    <a class="button" href="#project">
-      Explore Our Project
-    </a>
-
-    <a class="button secondary" href="#about">
-      About Us
-    </a>
+    <a class="button" href="#project">Explore Our Project</a>
+    <a class="button secondary" href="#about">About Us</a>
   </div>
 </section>
 
@@ -602,9 +698,7 @@ footer {
         the hardware and software progress.
       </p>
 
-      <a class="button" href="#vision">
-        Discover Our Vision
-      </a>
+      <a class="button" href="#vision">Discover Our Vision</a>
     </div>
 
     <img
@@ -639,15 +733,24 @@ footer {
 
       <div class="weather-top">
         <div>
-          <div class="weather-brand">
-            COMPASSION.SAT 1
-          </div>
+          <div class="weather-brand">COMPASSION.SAT 1</div>
           <div class="small">Environmental Data System</div>
         </div>
 
         <div class="status offline" id="deviceStatus">
           <span class="status-dot"></span>
           <span id="statusText">CONNECTING</span>
+        </div>
+      </div>
+
+      <!-- WEATHER MEASUREMENT LOCATION -->
+      <div class="weather-location">
+        <div class="location-icon">📍</div>
+        <div>
+          <div class="location-label">WEATHER MEASUREMENT LOCATION</div>
+          <div class="location-name">
+            Ga-Phaahla, Limpopo, South Africa
+          </div>
         </div>
       </div>
 
@@ -679,16 +782,71 @@ footer {
           <strong id="lastUpdate">Waiting for data...</strong>
         </p>
 
-        <button class="refresh-button" onclick="loadWeather()">
+        <button class="refresh-button" onclick="refreshDashboard()">
           ↻ Refresh Data
         </button>
       </div>
 
+      <!-- KEEPING YOUR ORIGINAL SUCCESS MESSAGE -->
       <div class="weather-message" id="weatherMessage">
         Connecting to Compassion.Sat 1...
       </div>
 
     </div>
+
+    <!-- HISTORICAL WEATHER GRAPHS -->
+
+    <div class="history-section">
+
+      <div class="history-heading">
+        <div class="eyebrow">Weather Records</div>
+        <h3>Historical Weather Data</h3>
+        <p>
+          Explore recorded temperature and humidity averages
+          from Compassion.Sat 1.
+        </p>
+      </div>
+
+      <div class="range-controls">
+        <button class="range-button active"
+                data-range="24h"
+                onclick="loadHistory('24h')">
+          24 Hours
+        </button>
+
+        <button class="range-button"
+                data-range="7d"
+                onclick="loadHistory('7d')">
+          7 Days
+        </button>
+
+        <button class="range-button"
+                data-range="30d"
+                onclick="loadHistory('30d')">
+          30 Days
+        </button>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">🌡️ Temperature History (°C)</div>
+        <div class="chart-container">
+          <canvas id="temperatureChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">💧 Humidity History (%)</div>
+        <div class="chart-container">
+          <canvas id="humidityChart"></canvas>
+        </div>
+      </div>
+
+      <div class="history-message" id="historyMessage">
+        Loading historical weather records...
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -696,9 +854,7 @@ footer {
   <div class="container">
     <div class="eyebrow">Our Future</div>
 
-    <h2>
-      Our <span class="highlight">Vision</span>
-    </h2>
+    <h2>Our <span class="highlight">Vision</span></h2>
 
     <p>
       Our vision is to develop useful technology through learning,
@@ -768,9 +924,7 @@ footer {
       toward a future of discovery, learning, and innovation.
     </p>
 
-    <a class="button" href="#home">
-      Back to Home ↑
-    </a>
+    <a class="button" href="#home">Back to Home ↑</a>
   </div>
 </section>
 
@@ -795,108 +949,3 @@ footer {
 
 <script>
 document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-/* GOOGLE APPS SCRIPT WEATHER CONNECTION */
-
-const WEATHER_API =
-"https://script.google.com/macros/s/AKfycbyP8eCyfvF__UZbyv-FgM86QC-3jO2dnin1dTx0UtH_xmAk8CDTupeYfbBV1mW6OLFL/exec";
-
-let weatherTimeout;
-
-function setDeviceStatus(online, label) {
-  const status = document.getElementById("deviceStatus");
-  const text = document.getElementById("statusText");
-
-  status.className = online ? "status online" : "status offline";
-  text.textContent = label;
-}
-
-function loadWeather() {
-  const message = document.getElementById("weatherMessage");
-
-  message.textContent = "Updating weather data...";
-
-  clearTimeout(weatherTimeout);
-
-  const oldScript = document.getElementById("weatherApiScript");
-  if (oldScript) oldScript.remove();
-
-  window.compassionWeatherCallback = function(data) {
-
-    clearTimeout(weatherTimeout);
-
-    if (!data || data.temperature === null ||
-        data.humidity === null ||
-        data.temperature === undefined ||
-        data.humidity === undefined ||
-        !Number.isFinite(Number(data.temperature)) ||
-        !Number.isFinite(Number(data.humidity))) {
-
-      setDeviceStatus(false, "NO DATA");
-      message.textContent = "Waiting for the first weather reading.";
-      return;
-    }
-
-    document.getElementById("temperature").innerHTML =
-      Number(data.temperature).toFixed(1) +
-      '<span class="weather-unit"> °C</span>';
-
-    document.getElementById("humidity").innerHTML =
-      Number(data.humidity).toFixed(0) +
-      '<span class="weather-unit"> %</span>';
-
-    if (data.lastSeen) {
-      const date = new Date(Number(data.lastSeen));
-
-      if (!isNaN(date.getTime())) {
-        document.getElementById("lastUpdate").textContent =
-          date.toLocaleString();
-      }
-    } else {
-      document.getElementById("lastUpdate").textContent =
-        "Timestamp not available yet";
-    }
-
-    if (data.online === true) {
-      setDeviceStatus(true, "ONLINE");
-      message.textContent =
-        "Compassion.Sat 1 is sending weather data successfully.";
-    } else {
-      setDeviceStatus(false, "OFFLINE");
-      message.textContent =
-        "Showing the last recorded readings. The device has not sent a recent update.";
-    }
-  };
-
-  const script = document.createElement("script");
-  script.id = "weatherApiScript";
-
-  script.src = WEATHER_API +
-    "?action=latest&callback=compassionWeatherCallback&_=" +
-    Date.now();
-
-  script.onerror = function() {
-    clearTimeout(weatherTimeout);
-    setDeviceStatus(false, "CONNECTION ERROR");
-    message.textContent =
-      "Unable to contact the weather data server. Please try again.";
-  };
-
-  document.body.appendChild(script);
-
-  weatherTimeout = setTimeout(function() {
-    setDeviceStatus(false, "NO RESPONSE");
-    message.textContent =
-      "The weather server did not respond. Please try again.";
-  }, 15000);
-}
-
-/* LOAD DATA AND REFRESH EVERY 30 SECONDS */
-
-loadWeather();
-setInterval(loadWeather, 30000);
-</script>
-
-</body>
-</html>
