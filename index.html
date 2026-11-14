@@ -1,261 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06101c">
+<meta name="description" content="Compassion Space Technologies and Compassion.Sat 1, an Earth-based environmental monitoring project.">
+<title>Compassion Space Technologies</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--bg:#06101c;--panel:#0b1d32;--blue:#08c9f5;--cyan:#91eaff;--white:#f4f9ff;--muted:#b9c9dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.7}
+.container{width:min(1120px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(6,16,28,.97);border-bottom:1px solid #164564}
+.nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;padding:12px 0}
+.brand{color:var(--blue);text-decoration:none;font-size:15px;font-weight:800;letter-spacing:1px}
+nav{display:flex;flex-wrap:wrap;gap:15px}nav a{color:var(--white);text-decoration:none;font-size:14px}nav a:hover{color:var(--blue)}
+.hero{min-height:520px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(4,16,32,.98),rgba(4,16,32,.75),rgba(4,16,32,.2)),url("https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-content{max-width:760px;padding:80px 0}.eyebrow{color:var(--cyan);font-size:13px;letter-spacing:3px;font-weight:bold;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,70px);line-height:1.1;margin:18px 0}h2{font-size:clamp(28px,4vw,42px);line-height:1.2}h3{color:var(--blue)}p{color:var(--muted)}.highlight{color:var(--blue)}
+.button{display:inline-block;background:var(--blue);color:#04101a;padding:12px 21px;border-radius:7px;text-decoration:none;font-weight:bold;margin:8px 8px 8px 0}
+.button.secondary{background:transparent;color:white;border:1px solid var(--blue)}section{padding:75px 0}.intro{max-width:780px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px}
+.card{background:var(--panel);border:1px solid #164564;border-radius:13px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);border-color:var(--blue)}
+.card img{width:100%;height:220px;object-fit:cover;display:block}.card-content{padding:20px}.card-content h3{margin-top:0}
+.project-layout{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.project-image{width:100%;min-height:280px;max-height:430px;object-fit:cover;border-radius:13px;border:1px solid #254863}
+.feature-list{color:var(--muted);padding-left:22px}.feature-list li{margin:8px 0}
+.vision{background:linear-gradient(135deg,#10253b,#07111e);border-block:1px solid #203c56}
+.vision-image{width:100%;height:300px;object-fit:cover;border-radius:13px;margin-top:25px}
+.founder-box{display:flex;align-items:flex-start;gap:25px;padding:28px;background:var(--panel);border:1px solid #203c56;border-left:4px solid var(--blue);border-radius:12px}
+.founder-mark{flex-shrink:0;width:75px;height:75px;border-radius:50%;display:grid;place-items:center;background:#103c59;color:var(--cyan);font-size:25px;font-weight:bold}
+.weather-section{background:radial-gradient(ellipse at top,#103454 0%,#06101c 65%);border-block:1px solid #164564}
+.weather-heading{text-align:center;margin-bottom:35px}.weather-heading p{max-width:650px;margin:auto}
+.weather-panel{max-width:900px;margin:auto;padding:28px;background:rgba(11,29,50,.92);border:1px solid #17618a;border-radius:18px;box-shadow:0 0 35px rgba(8,201,245,.09)}
+.weather-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;padding-bottom:20px;border-bottom:1px solid #254863}
+.weather-brand{color:var(--cyan);font-size:14px;font-weight:bold;letter-spacing:1px}
+.status{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid #466079;border-radius:30px;font-size:12px;font-weight:bold;letter-spacing:1px}
+.status-dot{width:9px;height:9px;border-radius:50%;background:#8795a5}.status.online{color:#6effb1;border-color:#167c51}
+.status.online .status-dot{background:#25ed91;box-shadow:0 0 10px #25ed91}.status.offline{color:#ff9b9b;border-color:#8a3939}.status.offline .status-dot{background:#ff5252}
+.weather-location{display:flex;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid #254863}
+.location-icon{font-size:27px}.location-label{color:var(--muted);font-size:11px;letter-spacing:1.5px}
+.location-name{color:var(--cyan);font-weight:bold;font-size:15px}
+.weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.weather-card{background:linear-gradient(145deg,#102c49,#091a2c);border:1px solid #225071;border-radius:14px;padding:25px 20px;min-height:190px}
+.weather-label{color:var(--cyan);font-size:13px;letter-spacing:2px;font-weight:bold}
+.weather-value{font-size:clamp(38px,7vw,60px);font-weight:bold;line-height:1.3;margin-top:12px;color:white;overflow-wrap:anywhere}
+.weather-unit{font-size:19px;color:var(--cyan)}.weather-icon{font-size:26px;margin-bottom:8px}
+.weather-bottom{margin-top:23px;padding-top:18px;border-top:1px solid #254863;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.weather-bottom p{font-size:12px;margin:0}.small{font-size:12px}
+.weather-message{color:var(--cyan);font-size:13px;margin-top:15px;text-align:center}
+.refresh-button{background:transparent;border:1px solid var(--blue);color:var(--cyan);padding:9px 16px;border-radius:7px;cursor:pointer;font-size:13px}
+.history-section{max-width:900px;margin:35px auto 0}.history-heading{text-align:center;margin-bottom:20px}
+.history-heading h3{font-size:23px;margin-bottom:5px}.range-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:20px 0}
+.range-button{background:#0b1d32;color:var(--cyan);border:1px solid #225071;padding:9px 18px;border-radius:7px;cursor:pointer;font-weight:bold}
+.range-button:hover,.range-button.active{background:var(--blue);color:#04101a;border-color:var(--blue)}
+.chart-card{background:rgba(11,29,50,.92);border:1px solid #17618a;border-radius:14px;padding:20px;margin-top:18px}
+.chart-title{color:var(--cyan);font-weight:bold;margin-bottom:12px}.chart-container{position:relative;width:100%;height:260px}
+.history-message{color:var(--muted);font-size:13px;text-align:center;margin-top:15px;min-height:24px}
+.contact{text-align:center;background:linear-gradient(rgba(4,16,32,.88),rgba(4,16,32,.94)),url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80") center/cover}
+footer{padding:35px 0;text-align:center;border-top:1px solid #203c56}
+@media(max-width:760px){.grid,.project-layout{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center;gap:12px}.hero{min-height:450px}section{padding:52px 0}.founder-box{flex-direction:column}.weather-panel{padding:18px}.weather-card{padding:18px 12px;min-height:165px}.chart-card{padding:14px}.chart-container{height:230px}}
+@media(max-width:380px){.weather-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="brand" href="#home">COMPASSION SPACE TECHNOLOGIES</a>
+<nav aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#project">Our Project</a><a href="#weather">Live Weather</a><a href="#vision">Our Vision</a><a href="#founder">Founder</a></nav>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="container hero-content">
+<div class="eyebrow">Earth • Technology • Innovation</div>
+<h1>Discover Our World.<br><span class="highlight">Build a Better Future.</span></h1>
+<p>Welcome to Compassion Space Technologies, where ideas, technology, and compassion come together to explore our planet and develop innovative environmental solutions.</p>
+<a class="button" href="#project">Explore Our Project</a><a class="button secondary" href="#about">About Us</a>
+</div></section>
+<section id="about"><div class="container">
+<div class="intro"><div class="eyebrow">About Our Company</div><h2>Innovation with <span class="highlight">Compassion</span></h2>
+<p>Compassion Space Technologies is an emerging technology initiative focused on electronics, environmental monitoring, coding, and practical innovation. We explore how technology can help us understand our environment and address real-world challenges.</p></div>
+<div class="grid">
+<article class="card"><img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth viewed from space" loading="lazy"><div class="card-content"><h3>Explore Earth</h3><p>Learn about our planet and understand the world around us.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Electronic circuit board" loading="lazy"><div class="card-content"><h3>Build Technology</h3><p>Experiment with electronic circuits, sensors, and coding.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80" alt="Natural landscape" loading="lazy"><div class="card-content"><h3>Protect Our Environment</h3><p>Use technology to understand nature and support a healthier planet.</p></div></article>
+</div></div></section>
+<section id="project"><div class="container project-layout"><div>
+<div class="eyebrow">Our Main Project</div><h2><span class="highlight">Compassion.Sat 1</span></h2>
+<p>Compassion.Sat 1 is our Earth-based, satellite-inspired environmental monitoring project. It explores how electronic sensors and an ESP32 development board can collect local environmental measurements.</p>
+<h3>Project Objectives</h3><ul class="feature-list"><li>Measure local temperature with a suitable sensor.</li><li>Measure humidity with a compatible sensor.</li><li>Collect readings through an ESP32.</li><li>Display measurements on a web dashboard.</li><li>Learn how environmental data can be understood.</li></ul>
+<p>Compassion.Sat 1 operates on Earth. It is not an orbital satellite and is not designed to launch into space. Its capabilities will be developed and tested as the hardware and software progress.</p>
+<a class="button" href="#vision">Discover Our Vision</a></div>
+<img class="project-image" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85" alt="Global Earth technology" loading="lazy">
+</div></section>
+<section class="weather-section" id="weather"><div class="container">
+<div class="weather-heading"><div class="eyebrow">Compassion.Sat 1 • Live Data</div><h2>Weather <span class="highlight">Monitoring Station</span></h2><p>Live environmental measurements collected by Compassion.Sat 1. View the latest temperature and humidity readings from our Earth-based monitoring device.</p></div>
+<div class="weather-panel">
+<div class="weather-top"><div><div class="weather-brand">COMPASSION.SAT 1</div><div class="small">Environmental Data System</div></div>
+<div class="status offline" id="deviceStatus"><span class="status-dot"></span><span id="statusText">CONNECTING</span></div></div>
+<div class="weather-location"><div class="location-icon">📍</div><div><div class="location-label">WEATHER MEASUREMENT LOCATION</div><div class="location-name">Ga-Phaahla, Limpopo, South Africa</div></div></div>
+<div class="weather-grid">
+<div class="weather-card"><div class="weather-icon">🌡️</div><div class="weather-label">TEMPERATURE</div><div class="weather-value" id="temperature">--<span class="weather-unit"> °C</span></div><div class="small">Live sensor reading</div></div>
+<div class="weather-card"><div class="weather-icon">💧</div><div class="weather-label">HUMIDITY</div><div class="weather-value" id="humidity">--<span class="weather-unit"> %</span></div><div class="small">Relative air humidity</div></div>
+</div>
+<div class="weather-bottom"><p>LAST UPDATE: <strong id="lastUpdate">Waiting for data...</strong></p><button class="refresh-button" onclick="refreshDashboard()">↻ Refresh Data</button></div>
+<div class="weather-message" id="weatherMessage">Connecting to Compassion.Sat 1...</div>
+</div>
+<div class="history-section"><div class="history-heading"><div class="eyebrow">Weather Records</div><h3>Historical Weather Data</h3><p>Explore recorded temperature and humidity averages from Compassion.Sat 1.</p></div>
+<div class="range-controls"><button class="range-button active" data-range="24h" onclick="loadHistory('24h')">24 Hours</button><button class="range-button" data-range="7d" onclick="loadHistory('7d')">7 Days</button><button class="range-button" data-range="30d" onclick="loadHistory('30d')">30 Days</button></div>
+<div class="chart-card"><div class="chart-title">🌡️ Temperature History (°C)</div><div class="chart-container"><canvas id="temperatureChart"></canvas></div></div>
+<div class="chart-card"><div class="chart-title">💧 Humidity History (%)</div><div class="chart-container"><canvas id="humidityChart"></canvas></div></div>
+<div class="history-message" id="historyMessage">Loading historical weather records...</div>
+</div></div></section>
+<section class="vision" id="vision"><div class="container"><div class="eyebrow">Our Future</div><h2>Our <span class="highlight">Vision</span></h2>
+<p>Our vision is to develop useful technology through learning, creativity, experimentation, and responsible innovation. We aspire to grow Compassion Space Technologies into a platform for meaningful projects that help people understand and care for our world.</p>
+<h3>Our Mission</h3><p>To explore ideas, develop practical skills, and build innovative environmental technology one step at a time.</p>
+<img class="vision-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80" alt="Sunlight shining through a green forest" loading="lazy"></div></section>
+<section id="founder"><div class="container"><div class="eyebrow">Leadership</div><h2>Meet the <span class="highlight">Founder</span></h2>
+<div class="founder-box"><div class="founder-mark" aria-hidden="true">M</div><div><h3>Compassion</h3><p><strong>Real name: Mogau</strong></p><p>Founder of Compassion Space Technologies</p><p>Compassion, whose real name is Mogau, is the founder of Compassion Space Technologies. Driven by curiosity and a passion for technology, Mogau is developing Compassion.Sat 1, an Earth-based environmental monitoring project focused on electronics, environmental measurements, and innovation.</p></div></div></div></section>
+<section class="contact"><div class="container"><div class="eyebrow">Our Journey</div><h2>One Vision.<br><span class="highlight">Endless Possibilities.</span></h2><p>Compassion Space Technologies is taking its first steps toward a future of discovery, learning, and innovation.</p><a class="button" href="#home">Back to Home ↑</a></div></section>
+</main>
+<footer><div class="container"><strong>COMPASSION SPACE TECHNOLOGIES</strong><p>Powered by curiosity. Guided by compassion.</p><p>© <span id="year"></span> Compassion Space Technologies. All rights reserved.</p><p class="small">Website photographs are externally hosted and require internet access.</p></div></footer>
+<script>
 document.getElementById("year").textContent = new Date().getFullYear();
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbyP8eCyfvF__UZbyv-FgM86QC-3jO2dnin1dTx0UtH_xmAk8CDTupeYfbBV1mW6OLFL/exec";
+let temperatureChart=null,humidityChart=null,currentRange="24h";
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyP8eCyfvF__UZbyv-FgM86QC-3jO2dnin1dTx0UtH_xmAk8CDTupeYfbBV1mW6OLFL/exec";
-
-let temperatureChart = null;
-let humidityChart = null;
-let currentRange = "24h";
-
-function setStatus(online) {
-  const status = document.getElementById("deviceStatus");
-  const text = document.getElementById("statusText");
-
-  status.classList.remove("online", "offline");
-
-  if (online) {
-    status.classList.add("online");
-    text.textContent = "ONLINE";
-  } else {
-    status.classList.add("offline");
-    text.textContent = "OFFLINE";
-  }
+function setStatus(online){
+ const status=document.getElementById("deviceStatus");
+ status.classList.remove("online","offline");
+ status.classList.add(online?"online":"offline");
+ document.getElementById("statusText").textContent=online?"ONLINE":"OFFLINE";
 }
-
-function requestJSONP(params, callbackName, handler) {
-  const script = document.createElement("script");
-  const url = new URL(SCRIPT_URL);
-
-  Object.keys(params).forEach(key => {
-    url.searchParams.set(key, params[key]);
-  });
-
-  url.searchParams.set("callback", callbackName);
-
-  const timeout = setTimeout(() => {
-    delete window[callbackName];
-    script.remove();
-    handler(null);
-  }, 15000);
-
-  window[callbackName] = function(data) {
-    clearTimeout(timeout);
-    delete window[callbackName];
-    script.remove();
-    handler(data);
-  };
-
-  script.onerror = function() {
-    clearTimeout(timeout);
-    delete window[callbackName];
-    script.remove();
-    handler(null);
-  };
-
-  script.src = url.toString();
-  document.body.appendChild(script);
+function requestJSONP(params,callbackName,handler){
+ const script=document.createElement("script");
+ const url=new URL(SCRIPT_URL);
+ Object.keys(params).forEach(key=>url.searchParams.set(key,params[key]));
+ url.searchParams.set("callback",callbackName);
+ const timeout=setTimeout(()=>{delete window[callbackName];script.remove();handler(null);},15000);
+ window[callbackName]=function(data){clearTimeout(timeout);delete window[callbackName];script.remove();handler(data);};
+ script.onerror=function(){clearTimeout(timeout);delete window[callbackName];script.remove();handler(null);};
+ script.src=url.toString();document.body.appendChild(script);
 }
-
-function refreshDashboard() {
-  document.getElementById("weatherMessage").textContent =
-    "Connecting to Compassion.Sat 1...";
-
-  requestJSONP(
-    { action: "latest" },
-    "compassionWeatherCallback",
-    function(data) {
-      if (!data) {
-        setStatus(false);
-        document.getElementById("weatherMessage").textContent =
-          "Unable to receive weather data. Please try again.";
-        return;
-      }
-
-      const reading = data.data || data;
-
-      const temp = Number(reading.temperature);
-      const hum = Number(reading.humidity);
-
-      if (!Number.isFinite(temp) || !Number.isFinite(hum)) {
-        setStatus(false);
-        document.getElementById("weatherMessage").textContent =
-          "Waiting for valid sensor readings...";
-        return;
-      }
-
-      document.getElementById("temperature").innerHTML =
-        temp.toFixed(1) + '<span class="weather-unit"> °C</span>';
-
-      document.getElementById("humidity").innerHTML =
-        hum.toFixed(1) + '<span class="weather-unit"> %</span>';
-
-      const online = reading.online === true ||
-                     reading.online === "true";
-
-      setStatus(online);
-
-      if (online) {
-        document.getElementById("weatherMessage").textContent =
-          "Compassion.Sat 1 is sending weather data successfully.";
-      } else {
-        document.getElementById("weatherMessage").textContent =
-          "Latest readings received. Device is currently offline.";
-      }
-
-      const timestamp = Number(reading.timestamp);
-
-      if (timestamp > 0) {
-        document.getElementById("lastUpdate").textContent =
-          new Date(timestamp).toLocaleString();
-      } else {
-        document.getElementById("lastUpdate").textContent =
-          new Date().toLocaleString();
-      }
-    }
-  );
+function refreshDashboard(){
+ document.getElementById("weatherMessage").textContent="Connecting to Compassion.Sat 1...";
+ requestJSONP({action:"latest"},"compassionWeatherCallback",function(data){
+  if(!data){setStatus(false);document.getElementById("weatherMessage").textContent="Unable to receive weather data. Please try again.";return;}
+  const reading=data.data||data.latest||data;
+  const temp=Number(reading.temperature),hum=Number(reading.humidity);
+  if(!Number.isFinite(temp)||!Number.isFinite(hum)){setStatus(false);document.getElementById("weatherMessage").textContent="Waiting for valid sensor readings...";return;}
+  document.getElementById("temperature").innerHTML=temp.toFixed(1)+'<span class="weather-unit"> °C</span>';
+  document.getElementById("humidity").innerHTML=hum.toFixed(1)+'<span class="weather-unit"> %</span>';
+  const online=reading.online===true||reading.online==="true";
+  setStatus(online);
+  document.getElementById("weatherMessage").textContent=online?"Compassion.Sat 1 is sending weather data successfully.":"Latest readings received. Device is currently offline.";
+  const timestamp=Number(reading.timestamp||reading.lastSeen);
+  document.getElementById("lastUpdate").textContent=timestamp>0?new Date(timestamp).toLocaleString():new Date().toLocaleString();
+ });
 }
-
-function createWeatherCharts() {
-  const temperatureContext =
-    document.getElementById("temperatureChart").getContext("2d");
-
-  const humidityContext =
-    document.getElementById("humidityChart").getContext("2d");
-
-  temperatureChart = new Chart(temperatureContext, {
-    type: "line",
-    data: {
-      labels: [],
-      datasets: [{
-        label: "Temperature",
-        data: [],
-        borderColor: "#08c9f5",
-        backgroundColor: "rgba(8,201,245,0.12)",
-        borderWidth: 2,
-        fill: true,
-        tension: 0.35
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          ticks: { color: "#b9c9dc" },
-          grid: { color: "rgba(185,201,220,0.08)" }
-        },
-        y: {
-          ticks: { color: "#b9c9dc" },
-          grid: { color: "rgba(185,201,220,0.08)" }
-        }
-      },
-      plugins: {
-        legend: {
-          labels: { color: "#f4f9ff" }
-        }
-      }
-    }
-  });
-
-  humidityChart = new Chart(humidityContext, {
-    type: "line",
-    data: {
-      labels: [],
-      datasets: [{
-        label: "Humidity",
-        data: [],
-        borderColor: "#55e6a5",
-        backgroundColor: "rgba(85,230,165,0.12)",
-        borderWidth: 2,
-        fill: true,
-        tension: 0.35
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          ticks: { color: "#b9c9dc" },
-          grid: { color: "rgba(185,201,220,0.08)" }
-        },
-        y: {
-          min: 0,
-          max: 100,
-          ticks: { color: "#b9c9dc" },
-          grid: { color: "rgba(185,201,220,0.08)" }
-        }
-      },
-      plugins: {
-        legend: {
-          labels: { color: "#f4f9ff" }
-        }
-      }
-    }
-  });
+function createWeatherCharts(){
+ if(typeof Chart==="undefined"){document.getElementById("historyMessage").textContent="The graph library could not load. Check your internet connection.";return;}
+ const commonOptions={responsive:true,maintainAspectRatio:false,scales:{x:{ticks:{color:"#b9c9dc"},grid:{color:"rgba(185,201,220,.08)"}},y:{ticks:{color:"#b9c9dc"},grid:{color:"rgba(185,201,220,.08)"}}},plugins:{legend:{labels:{color:"#f4f9ff"}}}};
+ temperatureChart=new Chart(document.getElementById("temperatureChart"),{type:"line",data:{labels:[],datasets:[{label:"Temperature",data:[],borderColor:"#08c9f5",backgroundColor:"rgba(8,201,245,.12)",borderWidth:2,fill:true,tension:.35}]},options:commonOptions});
+ humidityChart=new Chart(document.getElementById("humidityChart"),{type:"line",data:{labels:[],datasets:[{label:"Humidity",data:[],borderColor:"#55e6a5",backgroundColor:"rgba(85,230,165,.12)",borderWidth:2,fill:true,tension:.35}]},options:{...commonOptions,scales:{...commonOptions.scales,y:{min:0,max:100,ticks:{color:"#b9c9dc"},grid:{color:"rgba(185,201,220,.08)"}}}}});
 }
-
-function loadHistory(range) {
-  currentRange = range;
-
-  document.querySelectorAll(".range-button").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.range === range
-    );
-  });
-
-  document.getElementById("historyMessage").textContent =
-    "Loading historical weather records...";
-
-  requestJSONP(
-    { action: "history", range: range },
-    "compassionHistoryCallback",
-    function(data) {
-      if (!data || !Array.isArray(data.points)) {
-        document.getElementById("historyMessage").textContent =
-          "Unable to load weather history. Please try again.";
-        return;
-      }
-
-      const points = data.points;
-
-      const labels = points.map(point => point.label);
-      const temperatures = points.map(point =>
-        Number(point.temperature)
-      );
-      const humidities = points.map(point =>
-        Number(point.humidity)
-      );
-
-      temperatureChart.data.labels = labels;
-      temperatureChart.data.datasets[0].data = temperatures;
-      temperatureChart.update();
-
-      humidityChart.data.labels = labels;
-      humidityChart.data.datasets[0].data = humidities;
-      humidityChart.update();
-
-      if (points.length === 0) {
-        document.getElementById("historyMessage").textContent =
-          "No historical records yet. Data will appear as readings are collected.";
-      } else {
-        document.getElementById("historyMessage").textContent =
-          "Showing " + points.length +
-          " recorded weather periods.";
-      }
-    }
-  );
+function loadHistory(range){
+ currentRange=range;
+ document.querySelectorAll(".range-button").forEach(button=>button.classList.toggle("active",button.dataset.range===range));
+ document.getElementById("historyMessage").textContent="Loading historical weather records...";
+ requestJSONP({action:"history",range:range},"compassionHistoryCallback",function(data){
+  if(!data||!Array.isArray(data.points)){document.getElementById("historyMessage").textContent="Unable to load weather history. Please try again.";return;}
+  if(!temperatureChart||!humidityChart)return;
+  const points=data.points,labels=points.map(point=>point.label);
+  temperatureChart.data.labels=labels;temperatureChart.data.datasets[0].data=points.map(point=>Number(point.temperature));temperatureChart.update();
+  humidityChart.data.labels=labels;humidityChart.data.datasets[0].data=points.map(point=>Number(point.humidity));humidityChart.update();
+  document.getElementById("historyMessage").textContent=points.length===0?"No historical records yet. Records will appear as timestamped readings are collected.":"Showing "+points.length+" recorded weather periods.";
+ });
 }
-
 createWeatherCharts();
 refreshDashboard();
 loadHistory("24h");
-
-setInterval(refreshDashboard, 30000);
-setInterval(function() {
-  loadHistory(currentRange);
-}, 300000);
-
+setInterval(refreshDashboard,30000);
+setInterval(()=>loadHistory(currentRange),300000);
 </script>
 </body>
 </html>
